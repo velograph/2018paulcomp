@@ -1,0 +1,27 @@
+{
+  "name": "paul-component-2018-update",
+  "title": "Paul Component 2018 Update",
+  "description": "Yet Another Wordpress Theme",
+  "version": "0.1.0",
+  "homepage": "http://velograph.co",
+  "author": {
+    "name": "Jason Britton",
+    "email": "jason@velograph.co",
+    "url": "http://velograph.co"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:velograph/basis.git"
+  },
+  "devDependencies": {
+    "grunt": "~1.0.3",
+    "matchdep": "~2.0.0",
+    "grunt-contrib-uglify": "~3.3.0",
+    "grunt-contrib-cssmin": "~2.2.1",
+    "grunt-contrib-sass": "~1.0.0",
+    "grunt-contrib-watch": "~1.1.0",
+    "grunt-sass": "3.0.1",
+    "grunt-contrib-imagemin": "~2.0.1"
+  },
+  "keywords": []
+}
