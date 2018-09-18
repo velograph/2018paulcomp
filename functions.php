@@ -116,11 +116,6 @@ require get_template_directory() . '/inc/template-tags.php';
 require get_template_directory() . '/inc/extras.php';
 
 /**
- * Load Jetpack compatibility file.
- */
-require get_template_directory() . '/inc/jetpack.php';
-
-/**
  * Declare Woocommerce support
  */
 add_action( 'after_setup_theme', 'woocommerce_support' );

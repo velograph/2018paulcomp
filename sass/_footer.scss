@@ -1,0 +1,146 @@
+.mailing-signup {
+	@include row();
+	position: relative;
+	.mailing-list-image {
+		z-index: 0;
+		img {
+			float: left;
+		}
+	}
+	.signup-form {
+		color: $white;
+		left: 50%;
+		position: absolute;
+		text-align: center;
+		top: 50%;
+		@include transform( translate(-50%, -50%) );
+		width: 100%;
+		.epm-sign-up-form {
+			.epm-form-field {
+				margin: 0 auto;
+				width: 50%;
+			}
+			label[for="epm-email"],
+			input[type="submit"] {
+				display: none;
+			}
+			input[type="email"] {
+				margin: 0 auto $twentyfive;
+				padding: $five $five $five 35px;
+				@include media( $large-screen ) {
+					width: 50%;
+				}
+				background: {
+					image: url('../images/envelope.svg');
+				}
+			}
+		}
+		h1 {
+			font-size: $h3-font-size / 1.5;
+			margin: $fifteen 0;
+			@include media( $large-screen ) {
+				font-size: $h1-font-size;
+				margin-bottom: $twentyfive;
+			}
+		}
+		blockquote {
+			color: $white;
+			margin: 0 auto;
+			padding: 0 $twentyfive;
+			@include media( $large-screen ) {
+				width: 45%;
+			}
+		}
+	}
+}
+.instagram-feed {
+	#sb_instagram {
+		margin: 0 auto -5px;
+		img {
+			float: left;
+		}
+	}
+}
+.top-footer {
+	@include row();
+	background: #3e4649;
+	color: $offwhite;
+	padding: $twentyfive 0;
+	text-align: center;
+	@include media( $large-screen ) {
+		padding: $fifty 0;
+		text-align: left;
+	}
+	.outer-container {
+		@include outer-container;
+		a {
+			color: $offwhite;
+			&:hover {
+				color: $white;
+			}
+		}
+		h5 {
+			color: $background;
+		}
+		.paul-logo {
+			@include media( $large-screen ) {
+				@include span-columns(2);
+			}
+			svg {
+				margin-bottom: $twentyfive;
+				width: 25%;
+				@include media( $large-screen ) {
+					margin: $ten 0 0 0;
+					width: 75%;
+				}
+			}
+		}
+		.contact-info {
+			margin-bottom: $twentyfive;
+			@include media( $large-screen ) {
+				@include span-columns(4);
+				margin-bottom: 0;
+			}
+		}
+		.utility-menu {
+			margin-bottom: $twentyfive;
+			@include media( $large-screen ) {
+				@include span-columns(3);
+				margin: 0;
+			}
+		}
+		.social-media {
+			@include media( $large-screen ) {
+				@include span-columns(3);
+			}
+			.icon {
+				@include span-columns(2);
+				&:first-of-type {
+					@include shift(3);
+					@include media( $large-screen ) {
+						@include shift(0);
+					}
+				}
+			}
+			svg {
+				fill: $offwhite;
+				margin-top: $fifteen;
+				width: $thirty;
+				@include transition(all 0.2s ease-in-out);
+				&:hover {
+					fill: $white;
+				}
+			}
+		}
+	}
+}
+.bottom-footer {
+	background: $black;
+	border-top: 2px solid $orange;
+	color: $offwhite;
+	padding: $ten 0;
+	text-align: center;
+}
+.footer {
+	@include outer-container;
+}

@@ -1,0 +1,225 @@
+.utility-header {
+	svg {
+		fill: $offwhite;
+		vertical-align: middle;
+		width: 16px;
+	}
+	a {
+		color: $offwhite;
+	}
+}
+
+.cart-count {
+	font-weight: 700;
+}
+
+.mobile-header {
+	@include outer-container;
+	background: $black;
+	display: block;
+	@include media( $large-screen ) {
+		display: none;
+	}
+	.site-branding {
+		@include span-columns(4);
+		@include shift(4);
+		margin-bottom: $fifteen;
+		margin-top: $twentyfive;
+	}
+	.menu-hook-container {
+		@include span-columns(2);
+		@include shift(5);
+		margin-bottom: $ten;
+		text-align: center;
+		.menu-hook {
+			color: $offwhite;
+			text-transform: uppercase;
+			font: {
+				size: 16px;
+				weight: bold;
+			}
+		}
+	}
+	.slide-out {
+		clear: both;
+	}
+	.mobile-navigation {
+		@include row();
+		padding: $fifteen 0;
+		.main-navigation {
+			@include span-columns(4);
+			@include shift(2);
+			li {
+				font-weight: bold;
+				margin-bottom: $five;
+				text-transform: uppercase;
+				a {
+					color: $offwhite;
+				}
+				&:last-of-type {
+					margin-bottom: 0;
+				}
+			}
+		}
+		.utility-header {
+			@include span-columns(4);
+			text-align: right;
+			.account-link,
+			.cart-link {
+				display: block;
+			}
+			.account-link {
+				margin-bottom: $five;
+			}
+		}
+	}
+	.search-form {
+		@include row();
+		label {
+			@include span-columns(8);
+			@include shift(2);
+			margin-bottom: 0;
+		}
+		input {
+			margin-bottom: $fifteen;
+			padding: $five $five $five $twentyfive;
+			background: {
+				image: url('../images/magnifying_glass.svg');
+			}
+		}
+	}
+}
+
+.utility-header {
+	@include row();
+	background: $black;
+	display: none;
+	@include media( $large-screen ) {
+		display: block;
+	}
+	.inner-container {
+		@include outer-container;
+		.account-link {
+			@include shift(6);
+			@include span-columns(2);
+			font-size: 16px;
+			height: 20px;
+			padding-top: 3px;
+			text-align: right;
+			.account-title {
+			}
+		}
+		.cart-link {
+			@include span-columns(1);
+			font-size: 16px;
+			height: 20px;
+			padding-top: 3px;
+			text-align: right;
+			.cart-title {
+			}
+		}
+		.search-form {
+			@include span-columns(3);
+			color: $dark-gray;
+			font-size: 16px;
+			label {
+				margin-right: $ten;
+			}
+			input[type="search"] {
+				padding: $five $five $five $twentyfive;
+				border: 2px solid $light-gray;
+				background: {
+					image: url('../images/magnifying_glass.svg');
+				}
+			}
+		}
+	}
+}
+
+.desktop-header {
+	background: $black;
+	border-bottom: $five solid $orange;
+	display: none;
+	z-index: 1; // Sets the header on top of all other content.
+	@include media( $large-screen ) {
+		display: block;
+	}
+	.inner-container {
+		display: flex;
+		padding-top: $five;
+		.site-logo {
+			@include span-columns(1);
+			img, svg {
+				margin: $ten auto;
+				width: 100%;
+			}
+		}
+		.desktop-navigation {
+			@include span-columns(10);
+			.menu-primary-container,
+			.utility-navigation {
+				@include span-columns(6);
+			}
+			.menu-primary-container {
+				ul {
+					@include display(inline-flex);
+					margin: 92px $ten 0 0;
+  					li {
+ 						@include flex-direction(row-reverse);
+ 						margin-bottom: 7px;
+						font: {
+							weight: 700;
+						}
+						text: {
+							align: center;
+							transform: uppercase;
+						}
+						a {
+							color: $offwhite;
+							padding: $ten;
+							font-size: 24px;
+							&:hover {
+								background: $light-gray;
+								color: $gray;
+							}
+						}
+					}
+				}
+			}
+			.utility-navigation {
+				a {
+					color: $white;
+				}
+				.site-search-container {
+					@include span-columns(6);
+					.search-icon {
+						display: inline;
+						svg {
+							width: 4%;
+						}
+					}
+					.site-search-input {
+						background: $black;
+						border-top: 0;
+						border-right: 0;
+						border-bottom: 1px solid $white;
+						border-left: 0;
+						display: inline;
+						margin-left: 5px;
+						position: absolute;
+						width: 250px;
+					}
+				}
+				.account-and-cart {
+					@include span-columns(6);
+				}
+				.cart-link {
+					svg {
+						fill: $white;
+						width: 4%;
+					}
+				}
+			}
+		}
+	}
+}
