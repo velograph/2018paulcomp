@@ -116,7 +116,7 @@
 			text-transform: uppercase;
 		}
 		ul.desktop-navigation {
-			margin: 6% 0 2%;
+			margin: 7% 0 $xsmallspace;
 			padding: 0 0 0 $smallspace;
 			.menu-item {
 				display: inline-flex;
@@ -137,9 +137,6 @@
 			.search-icon {
 				@include span-columns(1);
 				@include shift(2);
-				svg {
-
-				}
 			}
 			.site-search-input {
 				@include span-columns(9);
@@ -152,6 +149,9 @@
 		.account-and-cart {
 			@include span-columns(3);
 			padding: 8% 0 2%;
+			svg {
+				fill: $white;
+			}
 			.account-link {
 				@include span-columns(6);
 				font-size: 14px;
@@ -161,8 +161,12 @@
 				@include shift(1);
 				direction: ltr;
 				svg {
-					fill: $white;
 					width: 16px;
+				}
+				&:hover {
+					a {
+						fill: $orange-hover;
+					}
 				}
 			}
 		}
