@@ -1,5 +1,5 @@
 .mailing-signup {
-	@include row();
+	@include grid-container();
 	position: relative;
 	.mailing-list-image {
 		z-index: 0;
@@ -13,7 +13,7 @@
 		position: absolute;
 		text-align: center;
 		top: 50%;
-		@include transform( translate(-50%, -50%) );
+		// @include transform( translate(-50%, -50%) );
 		width: 100%;
 		.epm-sign-up-form {
 			.epm-form-field {
@@ -27,7 +27,7 @@
 			input[type="email"] {
 				margin: 0 auto $twentyfive;
 				padding: $five $five $five 35px;
-				@include media( $large-screen ) {
+				@include grid-media( $neat-large ) {
 					width: 50%;
 				}
 				background: {
@@ -36,10 +36,10 @@
 			}
 		}
 		h1 {
-			font-size: $h3-font-size / 1.5;
+			// font-size: $h3-font-size / 1.5;
 			margin: $fifteen 0;
-			@include media( $large-screen ) {
-				font-size: $h1-font-size;
+			@include grid-media( $neat-large ) {
+				// font-size: $h1-font-size;
 				margin-bottom: $twentyfive;
 			}
 		}
@@ -47,7 +47,7 @@
 			color: $white;
 			margin: 0 auto;
 			padding: 0 $twentyfive;
-			@include media( $large-screen ) {
+			@include grid-media( $neat-large ) {
 				width: 45%;
 			}
 		}
@@ -62,17 +62,17 @@
 	}
 }
 .top-footer {
-	@include row();
+	@include grid-container();
 	background: #3e4649;
 	color: $offwhite;
 	padding: $twentyfive 0;
 	text-align: center;
-	@include media( $large-screen ) {
+	@include grid-media( $neat-large ) {
 		padding: $fifty 0;
 		text-align: left;
 	}
-	.outer-container {
-		@include outer-container;
+	.grid-container {
+		@include grid-container;
 		a {
 			color: $offwhite;
 			&:hover {
@@ -83,13 +83,13 @@
 			color: $background;
 		}
 		.paul-logo {
-			@include media( $large-screen ) {
-				@include span-columns(2);
+			@include grid-media( $neat-large ) {
+				@include grid-column(2);
 			}
 			svg {
 				margin-bottom: $twentyfive;
 				width: 25%;
-				@include media( $large-screen ) {
+				@include grid-media( $neat-large ) {
 					margin: $ten 0 0 0;
 					width: 75%;
 				}
@@ -97,28 +97,28 @@
 		}
 		.contact-info {
 			margin-bottom: $twentyfive;
-			@include media( $large-screen ) {
-				@include span-columns(4);
+			@include grid-media( $neat-large ) {
+				@include grid-column(4);
 				margin-bottom: 0;
 			}
 		}
 		.utility-menu {
 			margin-bottom: $twentyfive;
-			@include media( $large-screen ) {
-				@include span-columns(3);
+			@include grid-media( $neat-large ) {
+				@include grid-column(3);
 				margin: 0;
 			}
 		}
 		.social-media {
-			@include media( $large-screen ) {
-				@include span-columns(3);
+			@include grid-media( $neat-large ) {
+				@include grid-column(3);
 			}
 			.icon {
-				@include span-columns(2);
+				@include grid-column(2);
 				&:first-of-type {
-					@include shift(3);
-					@include media( $large-screen ) {
-						@include shift(0);
+					@include grid-shift(3);
+					@include grid-media( $neat-large ) {
+						@include grid-shift(0);
 					}
 				}
 			}
@@ -126,7 +126,6 @@
 				fill: $offwhite;
 				margin-top: $fifteen;
 				width: $thirty;
-				@include transition(all 0.2s ease-in-out);
 				&:hover {
 					fill: $white;
 				}
@@ -142,5 +141,5 @@
 	text-align: center;
 }
 .footer {
-	@include outer-container;
+	@include grid-container;
 }

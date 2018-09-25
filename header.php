@@ -25,8 +25,10 @@
 
 <div id="page" class="hfeed site">
 
-	<?php get_template_part( 'parts/mobile-header' ); ?>
+	<?php get_template_part('parts/complete-header'); ?>
 
-	<?php get_template_part( 'parts/desktop-header' ); ?>
+	<?php //get_template_part( 'parts/mobile-header' ); ?>
+
+	<?php //get_template_part( 'parts/desktop-header' ); ?>
 
 	<div id="content" class="content-container">

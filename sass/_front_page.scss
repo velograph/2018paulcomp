@@ -1,0 +1,40 @@
+.front-page-leader {
+	@include grid-container();
+	.lead-image {
+	}
+	.lead-in-copy-container {
+		// @include grid-column(6);
+		.lead-in-copy {
+			@include grid-column(8);
+			@include grid-shift(2);
+			border-bottom: 1px solid $gray;
+			padding: $smallspace 0;
+			h3 {
+				text-transform: uppercase;
+			}
+			p {
+				font: {
+					// family: $palatino;
+					// size: $h4-font-size;
+					style: italic;
+				}
+			}
+			// padding: $largespace 0;
+		}
+	}
+}
+
+
+.portal-container {
+	@include grid-container;
+	.shop-portals {
+		@include grid-container();
+		text-align: center;
+		.portal {
+		@include grid-column(1);
+		  // @include grid-column(1, $custom-grid--fifths);
+		  // @include grid-column(2);
+			// @include omega(6n);
+		}
+	}
+}

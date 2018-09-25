@@ -9,7 +9,7 @@
 // Neat Breakpoints
 $mobile: new-breakpoint(max-width em(640));
 $medium-screen: em(640);
-$large-screen: em(860);
+$neat-large: em(860);
 
 $medium-screen-up: new-breakpoint(min-width $medium-screen 4);
-$large-screen-up: new-breakpoint(min-width $large-screen 8);
+$neat-large-up: new-breakpoint(min-width $neat-large 8);
