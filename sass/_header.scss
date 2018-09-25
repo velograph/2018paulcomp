@@ -1,9 +1,9 @@
-$article-layout-grid: (
+$header-container: (
   columns: 1,
   gutter: 2rem,
 );
 
-$article-layout-grid--tablet-up: (
+$header-grid--tablet-up: (
   columns: 5,
   gutter: 2rem,
   media: "(min-width: 768px)",
@@ -18,7 +18,7 @@ $desktop-header: (
 .site-header {
 	@include grid-container;
 	.site-logo {
-		@include grid-column(1, $article-layout-grid);
+		@include grid-column(1, $header-container);
 		background: $black;
 		@include grid-media($desktop-header) {
 			@include grid-column(1);
@@ -26,7 +26,7 @@ $desktop-header: (
 		}
 	}
 	.menu-primary-container {
-		@include grid-column(1, $article-layout-grid);
+		@include grid-column(1, $header-container);
 		background: $black;
 
 		@include grid-media($desktop-header) {
@@ -35,7 +35,7 @@ $desktop-header: (
 		}
 	}
 	.utility-navigation {
-		@include grid-column(1, $article-layout-grid);
+		@include grid-column(1, $header-container);
 		background: $black;
 
 		@include grid-media($desktop-header) {
@@ -50,30 +50,30 @@ $desktop-header: (
 }
 
 .article-layout__hero {
-  @include grid-column(1, $article-layout-grid);
+  @include grid-column(1, $header-container);
   margin-bottom: 2rem;
   background: red;
   height: 300px;
 }
 
 .article-layout__sidebar {
-  @include grid-column(1, $article-layout-grid);
+  @include grid-column(1, $header-container);
   background: red;
   height: 300px;
   margin-bottom: 2rem;
 
-  @include grid-media($article-layout-grid--tablet-up) {
+  @include grid-media($header-grid--tablet-up) {
 	  background: purple;
     @include grid-column(2);
   }
 }
 
 .article-layout__main {
-  @include grid-column(1, $article-layout-grid);
+  @include grid-column(1, $header-container);
   background: red;
   height: 300px;
 
-  @include grid-media($article-layout-grid--tablet-up) {
+  @include grid-media($header-grid--tablet-up) {
 	  background: purple;
     @include grid-column(3);
   }
