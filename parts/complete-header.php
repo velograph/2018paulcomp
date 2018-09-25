@@ -6,7 +6,7 @@
 		</a>
 	</div>
 
-	<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'desktop-navigation' ) ); ?>
+	<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'site-navigation' ) ); ?>
 
 	<div class="utility-navigation">
 		<div class="site-search-container">
