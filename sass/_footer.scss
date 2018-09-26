@@ -9,11 +9,10 @@
 	}
 	.signup-form {
 		color: $white;
-		left: 50%;
 		position: absolute;
 		text-align: center;
 		top: 50%;
-		// @include transform( translate(-50%, -50%) );
+		transform: translateY(-50%);
 		width: 100%;
 		.epm-sign-up-form {
 			.epm-form-field {
@@ -61,85 +60,185 @@
 		}
 	}
 }
+
+$footer-grid: (
+	columns: 1,
+	gutter: 2rem,
+);
+
+$footer-grid--tablet-up: (
+	columns: 6,
+	gutter: 2rem,
+	media: "(min-width: 768px)",
+);
+
+$social-icon-grid: (
+	columns: 8,
+	gutter: 1rem,
+);
+
+$social-icon-grid-no-gutter: (
+	columns: 8,
+	gutter: 0,
+);
+
 .top-footer {
-	@include grid-container();
-	background: #3e4649;
-	color: $offwhite;
-	padding: $twentyfive 0;
+	background: $dark-gray;
+	color: $white;
+	padding: $xsmallspace 0;
 	text-align: center;
-	@include grid-media( $neat-large ) {
-		padding: $fifty 0;
+	@include grid-media($footer-grid--tablet-up) {
 		text-align: left;
 	}
-	.grid-container {
-		@include grid-container;
-		a {
-			color: $offwhite;
+	.outer-container {
+		@include grid-container();
+		margin: 0 auto;
+		max-width: 1200px;
+	}
+	h5 {
+		text-transform: uppercase;
+	}
+	a {
+		color: $offwhite;
+	}
+	ul {
+		padding: 0;
+		li {
+			margin-bottom: $xsmallspace;
+		}
+	}
+	.paul-logo {
+		@include grid-column(1, $footer-grid);
+		svg {
+			// margin: 0 auto;
+			padding: $midspace 0;
+			width: 50%;
+		}
+		@include grid-media($footer-grid--tablet-up) {
+			@include grid-column(1);
+			svg {
+				width: 90%;
+			}
+		}
+	}
+	.contact-info {
+		@include grid-column(1, $footer-grid);
+		@include grid-media($footer-grid--tablet-up) {
+			@include grid-column(2);
+		}
+	}
+	.utility-menu {
+		@include grid-column(1, $footer-grid);
+		@include grid-media($footer-grid--tablet-up) {
+			@include grid-column(1);
+		}
+	}
+	.social-media {
+		@include grid-column(1, $footer-grid);
+
+		@include grid-media($footer-grid--tablet-up) {
+			@include grid-column(2);
+		}
+		.icon {
+			@include grid-column(2, $social-icon-grid);
+			margin-top: 1rem;
+			&:first-of-type {
+				@include grid-media($footer-grid--tablet-up) {
+					@include margin(1rem 0 0 0);
+				}
+			}
+			svg {
+				fill: $orange-overlay;
+			}
 			&:hover {
-				color: $white;
-			}
-		}
-		h5 {
-			color: $background;
-		}
-		.paul-logo {
-			@include grid-media( $neat-large ) {
-				@include grid-column(2);
-			}
-			svg {
-				margin-bottom: $twentyfive;
-				width: 25%;
-				@include grid-media( $neat-large ) {
-					margin: $ten 0 0 0;
-					width: 75%;
-				}
-			}
-		}
-		.contact-info {
-			margin-bottom: $twentyfive;
-			@include grid-media( $neat-large ) {
-				@include grid-column(4);
-				margin-bottom: 0;
-			}
-		}
-		.utility-menu {
-			margin-bottom: $twentyfive;
-			@include grid-media( $neat-large ) {
-				@include grid-column(3);
-				margin: 0;
-			}
-		}
-		.social-media {
-			@include grid-media( $neat-large ) {
-				@include grid-column(3);
-			}
-			.icon {
-				@include grid-column(2);
-				&:first-of-type {
-					@include grid-shift(3);
-					@include grid-media( $neat-large ) {
-						@include grid-shift(0);
-					}
-				}
-			}
-			svg {
-				fill: $offwhite;
-				margin-top: $fifteen;
-				width: $thirty;
-				&:hover {
-					fill: $white;
+				svg {
+					fill: $offwhite;
 				}
 			}
 		}
 	}
 }
-.bottom-footer {
-	background: $black;
-	border-top: 2px solid $orange;
-	color: $offwhite;
-	padding: $ten 0;
-	text-align: center;
-}
-.footer {
-	@include grid-container;
-}
+
+
+// .top-footer {
+// 	@include grid-container();
+// 	background: #3e4649;
+// 	color: $offwhite;
+// 	padding: $twentyfive 0;
+// 	text-align: center;
+// 	@include grid-media( $neat-large ) {
+// 		padding: $fifty 0;
+// 		text-align: left;
+// 	}
+// 	.grid-container {
+// 		@include grid-container;
+// 		a {
+// 			color: $offwhite;
+// 			&:hover {
+// 				color: $white;
+// 			}
+// 		}
+// 		h5 {
+// 			color: $background;
+// 		}
+// 		.paul-logo {
+// 			@include grid-media( $neat-large ) {
+// 				@include grid-column(2);
+// 			}
+// 			svg {
+// 				margin-bottom: $twentyfive;
+// 				width: 25%;
+// 				@include grid-media( $neat-large ) {
+// 					margin: $ten 0 0 0;
+// 					width: 75%;
+// 				}
+// 			}
+// 		}
+// 		.contact-info {
+// 			margin-bottom: $twentyfive;
+// 			@include grid-media( $neat-large ) {
+// 				@include grid-column(4);
+// 				margin-bottom: 0;
+// 			}
+// 		}
+// 		.utility-menu {
+// 			margin-bottom: $twentyfive;
+// 			@include grid-media( $neat-large ) {
+// 				@include grid-column(3);
+// 				margin: 0;
+// 			}
+// 		}
+// 		.social-media {
+// 			@include grid-media( $neat-large ) {
+// 				@include grid-column(3);
+// 			}
+// 			.icon {
+// 				@include grid-column(2);
+// 				&:first-of-type {
+// 					@include grid-shift(3);
+// 					@include grid-media( $neat-large ) {
+// 						@include grid-shift(0);
+// 					}
+// 				}
+// 			}
+// 			svg {
+// 				fill: $offwhite;
+// 				margin-top: $fifteen;
+// 				width: $thirty;
+// 				&:hover {
+// 					fill: $white;
+// 				}
+// 			}
+// 		}
+// 	}
+// }
+// .bottom-footer {
+// 	background: $black;
+// 	border-top: 2px solid $orange;
+// 	color: $offwhite;
+// 	padding: $ten 0;
+// 	text-align: center;
+// }
+// .footer {
+// 	@include grid-container;
+// }

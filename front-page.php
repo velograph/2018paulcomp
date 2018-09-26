@@ -52,9 +52,9 @@ get_header(); ?>
 
 <!-- Begin Shop Sections -->
 
-	<section class="portal-container">
+	<section class="portal-containers">
 
-		<div class="shop-portals">
+		<div class="component-portals portal-container">
 
 			<h2>Components</h2>
 			<?php
@@ -83,9 +83,9 @@ get_header(); ?>
 
 			<?php endforeach; wp_reset_query(); ?>
 
-		</div><!-- .shop-portals -->
+		</div>
 
-		<div class="shop-portals">
+		<div class="service-parts-portals portal-container">
 
 			<h2>Spare Parts</h2>
 			<?php
@@ -114,39 +114,45 @@ get_header(); ?>
 
 			<?php endforeach; wp_reset_query(); ?>
 
-		</div><!-- .shop-portals -->
+		</div>
 
-		<div class="shop-portals">
+		<div class="accessories-apparel-portals portal-container">
 
 			<h2>Apparel</h2>
-			<?php
-				$prod_categories = get_terms( 'product_cat', array(
-					'orderby' => 'name',
-					'order' => 'ASC',
-					'parent' => 100,
-					'hide_empty' => 1
-				));
-				foreach( $prod_categories as $prod_cat ) :
-					$cat_thumb_id = get_woocommerce_term_meta( $prod_cat->term_id, 'thumbnail_id', true );
-					$cat_thumb_url = wp_get_attachment_thumb_url( $cat_thumb_id );
-					$term_link = get_term_link( $prod_cat, 'product_cat' );
-				?>
 
-				<div class="portal">
+			<div class="empty-column">&nbsp;</div>
 
-					<a href="<?php echo $term_link; ?>">
-						<img src="<?php echo $cat_thumb_url; ?>" />
-						<h4>
-							<?php echo $prod_cat->name; ?>
-						</h4>
-					</a>
+			<div class="portals">
+				<?php
+					$prod_categories = get_terms( 'product_cat', array(
+						'orderby' => 'name',
+						'order' => 'ASC',
+						'parent' => 100,
+						'hide_empty' => 1
+					));
+					foreach( $prod_categories as $prod_cat ) :
+						$cat_thumb_id = get_woocommerce_term_meta( $prod_cat->term_id, 'thumbnail_id', true );
+						$cat_thumb_url = wp_get_attachment_thumb_url( $cat_thumb_id );
+						$term_link = get_term_link( $prod_cat, 'product_cat' );
+					?>
 
-				</div>
+					<div class="portal">
 
-			<?php endforeach; wp_reset_query(); ?>
+						<a href="<?php echo $term_link; ?>">
+							<img src="<?php echo $cat_thumb_url; ?>" />
+							<h4>
+								<?php echo $prod_cat->name; ?>
+							</h4>
+						</a>
 
+					</div>
 
-		</div><!-- .shop-portals -->
+				<?php endforeach; wp_reset_query(); ?>
+			</div>
+
+			<div class="empty-column">&nbsp;</div>
+
+		</div>
 
 	</section>
 
@@ -178,40 +184,17 @@ get_header(); ?>
 			<img srcset="<?php echo $image[0]; ?>">
 		</picture>
 
+		<div class="empty-column">&nbsp;</div>
+
 		<div class="story-lead-in page-content">
 			<h1><?php the_field('story_title'); ?></h1>
-			<h4><?php the_field('story_tagline'); ?></h4>
-
-			<div class="story-image">
-				<?php $mobile_page_banner = wp_get_attachment_image_src(get_field('story_supporting_image'), 'portal-mobile'); ?>
-				<?php $tablet_page_banner = wp_get_attachment_image_src(get_field('story_supporting_image'), 'portal-tablet'); ?>
-				<?php $desktop_page_banner = wp_get_attachment_image_src(get_field('story_supporting_image'), 'portal-desktop'); ?>
-				<?php $retina_page_banner = wp_get_attachment_image_src(get_field('story_supporting_image'), 'portal-retina'); ?>
-
-				<picture>
-					<!--[if IE 9]><video style="display: none"><![endif]-->
-					<source
-						srcset="<?php echo $mobile_page_banner[0]; ?>"
-						media="(max-width: 500px)" />
-					<source
-						srcset="<?php echo $tablet_page_banner[0]; ?>"
-						media="(max-width: 860px)" />
-					<source
-						srcset="<?php echo $desktop_page_banner[0]; ?>"
-						media="(max-width: 1180px)" />
-					<source
-						srcset="<?php echo $retina_page_banner[0]; ?>"
-						media="(min-width: 1181px)" />
-					<!--[if IE 9]></video><![endif]-->
-					<img srcset="<?php echo $image[0]; ?>">
-				</picture>
-			</div>
 
 			<div class="lead-in-copy story-content">
 				<?php the_field('story_content'); ?>
 				<p><a href="/story">Keep Reading ></a></p>
 			</div>
 		</div>
+		<div class="empty-column">&nbsp;</div>
 
 	</section><!-- .story-lead-in -->
 

@@ -40,16 +40,3 @@
 	</div>
 
 </header>
-
-
-<div class="article-layout">
-	<div class="article-layout__hero">
-		1 of 1 columns
-	</div>
-	<div class="article-layout__sidebar">
-		1 of 1 columns below 786px<br>2 of 5 columns above
-	</div>
-	<div class="article-layout__main">
-		1 of 1 columns below 786px<br>3 of 5 columns above
-	</div>
-</div>
