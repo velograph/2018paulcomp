@@ -71,7 +71,6 @@ $utility-header: (
 	}
 	.slide-out {
 		clear: both;
-        display: block !important;
 	}
 	.mobile-navigation {
 		@include grid-container();
