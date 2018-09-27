@@ -9,50 +9,22 @@ $header-grid--tablet-up: (
   media: "(min-width: 768px)",
 );
 
+$header-grid--mobile: (
+  columns: 6,
+  gutter: 1rem,
+  media: "(max-width: 767px)",
+);
+
 $desktop-header: (
 	columns: 12,
 	gutter: 1rem,
 	media: "(min-width: 768px)",
 );
 
-.site-header {
-	@include grid-container;
-    background: $black;
-    border-bottom: 5px solid $orange;
-    a {
-        color: $white;
-    }
-	.site-logo {
-		@include grid-column(1, $header-container);
-		@include grid-media($desktop-header) {
-			@include grid-column(1);
-		}
-	}
-	.menu-primary-container {
-		@include grid-column(1, $header-container);
-        @include grid-media($desktop-header) {
-			@include grid-column(6);
-		}
-        text-transform: uppercase;
-        font: {
-            weight: 700;
-            size: $h5-font-size;
-        }
-        .site-navigation {
-            li {
-                list-style-type: none;
-                @include hide-visually;
-            }
-        }
-	}
-	.utility-navigation {
-		@include grid-column(1, $header-container);
-
-		@include grid-media($desktop-header) {
-			@include grid-column(5);
-		}
-	}
-}
+$utility-header: (
+	columns: 12,
+	gutter: .35rem,
+);
 
 .utility-header {
 	svg {
@@ -72,21 +44,20 @@ $desktop-header: (
 .mobile-header {
 	@include grid-container;
 	background: $black;
-	@include grid-media( $neat-small ) {
-		display: block;
-	}
-	@include grid-media( $neat-large ) {
-		@include hide-visually;
-	}
+    @include grid-media($header-grid--tablet-up) {
+        display: none;
+    }
 	.site-branding {
-		@include grid-column(4);
-		@include grid-shift(4);
+		@include grid-column(2, $header-grid--mobile);
+		@include grid-shift(2, $header-grid--mobile);
+        // margin: $xsmallspace 0 $xxsmallspace 0;
 		margin-bottom: $fifteen;
 		margin-top: $twentyfive;
 	}
 	.menu-hook-container {
-		@include grid-column(2);
-		@include grid-shift(5);
+		@include grid-column(2, $header-grid--mobile);
+		@include grid-shift(2, $header-grid--mobile);
+        clear: both;
 		margin-bottom: $ten;
 		text-align: center;
 		.menu-hook {
@@ -100,13 +71,20 @@ $desktop-header: (
 	}
 	.slide-out {
 		clear: both;
+        display: block !important;
 	}
 	.mobile-navigation {
 		@include grid-container();
+        margin: 0 auto;
 		padding: $fifteen 0;
+        width: 60%;
+        ul {
+            margin: 0;
+            padding: 0;
+        }
 		.main-navigation {
-			@include grid-column(4);
-			@include grid-shift(2);
+			@include grid-column(3, $header-grid--mobile);
+			// @include grid-shift(2);
 			li {
 				font-weight: bold;
 				margin-bottom: $five;
@@ -120,8 +98,8 @@ $desktop-header: (
 			}
 		}
 		.utility-header {
-			@include grid-column(4);
-			text-align: right;
+            @include grid-column(3, $header-grid--mobile);
+            text-align: right;
 			.account-link,
 			.cart-link {
 				display: block;
@@ -134,25 +112,32 @@ $desktop-header: (
 	.search-form {
 		@include grid-container();
 		label {
-			@include grid-column(8);
+            @include grid-column(4, $header-grid--mobile);
 			@include grid-shift(2);
 			margin-bottom: 0;
 		}
 		input {
-			margin-bottom: $fifteen;
-			padding: $five $five $five $twentyfive;
-			background: {
+            background: {
+                color: $black;
 				image: url('../images/magnifying_glass.svg');
+                repeat: no-repeat;
 			}
+            border-bottom: 1px solid $white;
+            border-left: 0;
+            border-right: 0;
+            border-top: 0;
+			margin-bottom: $largespace;
+			padding: $smallspace $smallspace $smallspace $twentyfive;
+            width: 100%;
 		}
 	}
 }
 
 .desktop-header {
-	@include hide-visually;
+	display: none;
 	@include grid-media($header-grid--tablet-up) {
-		@include hide-visually("unhide");
         @include grid-container;
+        display: block;
         background: $black;
     	border-bottom: 5px solid $orange;
     	color: $white;
@@ -165,10 +150,9 @@ $desktop-header: (
     			@include grid-column(1);
     		}
     	}
-    		a {
-    			@include grid-container();
-    			padding: $midspace 0 0 0;
-    		}
+		a {
+			@include grid-container();
+		}
     	.menu-primary-container {
             @include grid-column(1, $header-container);
             @include grid-media($desktop-header) {
@@ -179,7 +163,7 @@ $desktop-header: (
     			text-transform: uppercase;
     		}
     		ul.desktop-navigation {
-    			margin: 7% 0 $xsmallspace;
+    			margin: 8% 0 $xsmallspace;
     			padding: 0 0 0 $smallspace;
     			.menu-item {
     				display: inline-flex;
@@ -199,12 +183,10 @@ $desktop-header: (
     		};
     		direction: rtl;
     		.site-search-container {
-                @include grid-media($desktop-header) {
-		             @include grid-column(8);
-                 }
+	            @include grid-column(7, $utility-header);
     			padding: 9% 0 2%;
     			.search-icon {
-                    @include grid-media($desktop-header) {
+                    @include grid-media($utility-header) {
     		             @include grid-column(2);
                          svg {
                              width: 50%;
@@ -212,7 +194,7 @@ $desktop-header: (
                      }
     			}
     			.site-search-input {
-                    @include grid-media($desktop-header) {
+                    @include grid-media($utility-header) {
     		             @include grid-column(10);
                      }
     				background: $black;
@@ -224,24 +206,18 @@ $desktop-header: (
     			}
     		}
     		.account-and-cart {
-                @include grid-media($desktop-header) {
-		             @include grid-column(3);
-                 }
-    			padding: 8% 0 2%;
+	            @include grid-column(4, $utility-header);
+    			padding: 9% 0 2%;
     			svg {
     				fill: $white;
     			}
     			.account-link {
-                    @include grid-media($desktop-header) {
-    		             @include grid-column(6);
-                     }
+		            @include grid-column(6, $utility-header);
     				font-size: 14px;
     			}
     			.cart-link {
-                    @include grid-media($desktop-header) {
-    		             @include grid-column(5);
-                     }
-    				@include grid-shift(1);
+		            @include grid-column(5, $utility-header);
+    				// @include grid-shift(1);
     				direction: ltr;
     				svg {
     					width: 16px;
