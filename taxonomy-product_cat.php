@@ -24,11 +24,7 @@ get_header( 'shop' ); ?>
 		$parent = get_term($term->parent, get_query_var('taxonomy') ); // get parent term
 		$children = get_term_children($term->term_id, get_query_var('taxonomy')); // get children
 		if ($term->parent === 0) { ?>
-		<?php
-			echo 'Grandparent';
-		?><br />
 
-		<?php echo $term->term_id; ?>
 		<div class="portal-container page-content <?php echo $term->slug; ?>">
 
    	 		<?php // Components ?>
@@ -61,9 +57,6 @@ get_header( 'shop' ); ?>
    	 	</div>
 
 		<?php } if(($parent->term_id!="" && sizeof($children)>0)) { ?>
-			<?php
-				echo 'Has some children';
-			?>
 			<?php
 				$current_term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) );
 				$terms = get_terms( 'product_cat', array(
@@ -127,8 +120,6 @@ get_header( 'shop' ); ?>
 					<?php wp_reset_postdata(); } ?>
 
 		<?php } elseif(($parent->term_id!="") && (sizeof($children)==0)) { ?>
-
-			<?php echo 'no children'; ?>
 
 			<?php if ( have_posts() ) : ?>
 
