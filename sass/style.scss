@@ -121,3 +121,12 @@ body {
 		margin: 0;
 	}
 }
+
+.shop-categories {
+	@include grid-container();
+	margin: 0 auto;
+	max-width: 1220px;
+	.portal {
+		@include grid-column(3);
+	}
+}
