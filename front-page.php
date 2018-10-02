@@ -15,30 +15,14 @@ get_header(); ?>
 <?php while ( have_posts() ) : the_post(); ?>
 
 	<section class="front-page-leader">
-
 		<section class="lead-image">
-			<?php $mobile_page_banner = wp_get_attachment_image_src(get_field('lead_in_image'), 'portal-mobile'); ?>
-			<?php $tablet_page_banner = wp_get_attachment_image_src(get_field('lead_in_image'), 'portal-tablet'); ?>
-			<?php $desktop_page_banner = wp_get_attachment_image_src(get_field('lead_in_image'), 'portal-desktop'); ?>
-			<?php $retina_page_banner = wp_get_attachment_image_src(get_field('lead_in_image'), 'portal-retina'); ?>
 
-			<picture class="full-width-image">
-				<!--[if IE 9]><video style="display: none"><![endif]-->
-				<source
-					srcset="<?php echo $mobile_page_banner[0]; ?>"
-					media="(max-width: 500px)" />
-				<source
-					srcset="<?php echo $tablet_page_banner[0]; ?>"
-					media="(max-width: 860px)" />
-				<source
-					srcset="<?php echo $desktop_page_banner[0]; ?>"
-					media="(max-width: 1180px)" />
-				<source
-					srcset="<?php echo $retina_page_banner[0]; ?>"
-					media="(min-width: 1181px)" />
-				<!--[if IE 9]></video><![endif]-->
-				<img srcset="<?php echo $image[0]; ?>">
-			</picture>
+			<?php
+				// Outputting an image using Image ID as the Return Value
+				$neat_responsive_image_id = get_field('lead_in_image');
+				echo wp_get_attachment_image( $neat_responsive_image_id, 'full' );
+			?>
+
 		</section>
 
 		<section class="lead-in-copy-container">
@@ -55,28 +39,11 @@ get_header(); ?>
 <!-- Begin Story Section -->
 
 	<section class="story-lead-in-container">
-		<?php $mobile_page_banner = wp_get_attachment_image_src(get_field('story_leading_image'), 'page-banner-mobile'); ?>
-		<?php $tablet_page_banner = wp_get_attachment_image_src(get_field('story_leading_image'), 'page-banner-tablet'); ?>
-		<?php $desktop_page_banner = wp_get_attachment_image_src(get_field('story_leading_image'), 'page-banner-desktop'); ?>
-		<?php $retina_page_banner = wp_get_attachment_image_src(get_field('story_leading_image'), 'page-banner-retina'); ?>
-
-		<picture class="full-width-image">
-			<!--[if IE 9]><video style="display: none"><![endif]-->
-			<source
-				srcset="<?php echo $mobile_page_banner[0]; ?>"
-				media="(max-width: 500px)" />
-			<source
-				srcset="<?php echo $tablet_page_banner[0]; ?>"
-				media="(max-width: 860px)" />
-			<source
-				srcset="<?php echo $desktop_page_banner[0]; ?>"
-				media="(max-width: 1180px)" />
-			<source
-				srcset="<?php echo $retina_page_banner[0]; ?>"
-				media="(min-width: 1181px)" />
-			<!--[if IE 9]></video><![endif]-->
-			<img srcset="<?php echo $image[0]; ?>">
-		</picture>
+		<?php
+			// Outputting an image using Image ID as the Return Value
+			$neat_responsive_image_id = get_field('story_leading_image');
+			echo wp_get_attachment_image( $neat_responsive_image_id, 'full' );
+		?>
 
 		<div class="empty-column">&nbsp;</div>
 

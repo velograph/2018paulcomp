@@ -7,7 +7,7 @@
 			$prod_categories = get_terms( 'product_cat', array(
 				'orderby' => 'name',
 				'order' => 'ASC',
-				'parent' => 103,
+				'parent' => 7,
 				'hide_empty' => 1
 			));
 			foreach( $prod_categories as $prod_cat ) :
@@ -19,7 +19,12 @@
 			<div class="portal">
 
 				<a href="<?php echo $term_link; ?>">
-					<img src="<?php echo $cat_thumb_url; ?>" />
+					<?php
+						// Outputting an image using Image ID as the Return Value
+						$cat_thumb_id = get_woocommerce_term_meta( $prod_cat->term_id, 'thumbnail_id', true );
+						echo wp_get_attachment_image( $cat_thumb_id, 'full' );
+					?>
+
 					<h4>
 						<?php echo $prod_cat->name; ?>
 					</h4>
@@ -38,7 +43,7 @@
 			$prod_categories = get_terms( 'product_cat', array(
 				'orderby' => 'name',
 				'order' => 'ASC',
-				'parent' => 112,
+				'parent' => 11,
 				'hide_empty' => 1
 			));
 			foreach( $prod_categories as $prod_cat ) :
@@ -50,7 +55,11 @@
 			<div class="portal">
 
 				<a href="<?php echo $term_link; ?>">
-					<img src="<?php echo $cat_thumb_url; ?>" />
+					<?php
+						// Outputting an image using Image ID as the Return Value
+						$cat_thumb_id = get_woocommerce_term_meta( $prod_cat->term_id, 'thumbnail_id', true );
+						echo wp_get_attachment_image( $cat_thumb_id, 'full' );
+					?>
 					<h4>
 						<?php echo $prod_cat->name; ?>
 					</h4>
@@ -73,7 +82,7 @@
 				$prod_categories = get_terms( 'product_cat', array(
 					'orderby' => 'name',
 					'order' => 'ASC',
-					'parent' => 100,
+					'parent' => 9,
 					'hide_empty' => 1
 				));
 				foreach( $prod_categories as $prod_cat ) :
@@ -85,7 +94,12 @@
 				<div class="portal">
 
 					<a href="<?php echo $term_link; ?>">
-						<img src="<?php echo $cat_thumb_url; ?>" />
+						<?php
+							// Outputting an image using Image ID as the Return Value
+							$cat_thumb_id = get_woocommerce_term_meta( $prod_cat->term_id, 'thumbnail_id', true );
+							echo wp_get_attachment_image( $cat_thumb_id, 'full' );
+						?>
+
 						<h4>
 							<?php echo $prod_cat->name; ?>
 						</h4>
