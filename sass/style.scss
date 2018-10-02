@@ -12,22 +12,8 @@
 * License:     Commercial
 */
 
-// @import "../bourbon/bourbon";
 @import "../neat/neat";
 @import "../bourbon/bourbon";
-// @import "../base/base";
-
-$mobile-header: (
-	columns: 12,
-	gutter: 20px,
-	media: 399px,
-);
-
-$neat-small: (
-	columns: 12,
-	gutter: 20px,
-	media: '(min-width:10px) and (max-width: 399px)',
-);
 
 $neat-large: (
 	columns: 12,
@@ -39,6 +25,7 @@ $neat-large: (
 @import "slick";
 @import "header";
 @import "front_page";
+@import "shop_sections";
 @import "footer";
 
 body {
@@ -119,14 +106,5 @@ body {
 		font-size: $h5-font-size;
 		letter-spacing: 1px;
 		margin: 0;
-	}
-}
-
-.shop-categories {
-	@include grid-container();
-	margin: 0 auto;
-	max-width: 1220px;
-	.portal {
-		@include grid-column(3);
 	}
 }

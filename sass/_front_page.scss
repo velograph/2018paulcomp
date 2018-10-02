@@ -26,7 +26,6 @@ $frontpage-desktop: (
 	.lead-image {
 	}
 	.lead-in-copy-container {
-		// @include grid-column(6);
 		.lead-in-copy {
 			@include grid-column(8);
 			@include grid-shift(2);
