@@ -44,7 +44,11 @@ get_header( 'shop' ); ?>
    	 			<div class="portal">
 
    	 				<a href="<?php echo $term_link; ?>">
-   	 					<img src="<?php echo $cat_thumb_url; ?>" />
+						<?php
+							// Outputting an image using Image ID as the Return Value
+							$cat_thumb_id = get_woocommerce_term_meta( $prod_cat->term_id, 'thumbnail_id', true );
+							echo wp_get_attachment_image( $cat_thumb_id, 'full' );
+						?>
    	 					<h4>
    	 						<?php echo $prod_cat->name; ?>
    	 					</h4>
@@ -85,28 +89,10 @@ get_header( 'shop' ); ?>
 
 							<div class="portal" id="post-<?php the_ID(); ?>">
 								<a href="<?php the_permalink(); ?>">
-									<?php $mobile_page_banner = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'page-banner-mobile'); ?>
-									<?php $tablet_page_banner = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'page-banner-tablet'); ?>
-									<?php $desktop_page_banner = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'page-banner-desktop'); ?>
-									<?php $retina_page_banner = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'page-banner-retina'); ?>
-
-									<picture>
-										<!--[if IE 9]><video style="display: none"><![endif]-->
-										<source
-											srcset="<?php echo $mobile_page_banner[0]; ?>"
-											media="(max-width: 500px)" />
-										<source
-											srcset="<?php echo $tablet_page_banner[0]; ?>"
-											media="(max-width: 860px)" />
-										<source
-											srcset="<?php echo $desktop_page_banner[0]; ?>"
-											media="(max-width: 1180px)" />
-										<source
-											srcset="<?php echo $retina_page_banner[0]; ?>"
-											media="(min-width: 1181px)" />
-										<!--[if IE 9]></video><![endif]-->
-										<img srcset="<?php echo $image[0]; ?>">
-									</picture>
+									<?php
+										// Outputting an image using Image ID as the Return Value
+										echo wp_get_attachment_image( get_post_thumbnail_id( $post->ID ), 'full' );
+									?>
 									<h4>
 										<?php the_title(); ?>
 									</h4>
@@ -129,28 +115,11 @@ get_header( 'shop' ); ?>
 
 						<div class="portal" id="post-<?php the_ID(); ?>">
 							<a href="<?php the_permalink(); ?>">
-								<?php $mobile_page_banner = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'page-banner-mobile'); ?>
-								<?php $tablet_page_banner = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'page-banner-tablet'); ?>
-								<?php $desktop_page_banner = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'page-banner-desktop'); ?>
-								<?php $retina_page_banner = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'page-banner-retina'); ?>
+								<?php
+									// Outputting an image using Image ID as the Return Value
+									echo wp_get_attachment_image( get_post_thumbnail_id( $post->ID ), 'full' );
+								?>
 
-								<picture>
-									<!--[if IE 9]><video style="display: none"><![endif]-->
-									<source
-										srcset="<?php echo $mobile_page_banner[0]; ?>"
-										media="(max-width: 500px)" />
-									<source
-										srcset="<?php echo $tablet_page_banner[0]; ?>"
-										media="(max-width: 860px)" />
-									<source
-										srcset="<?php echo $desktop_page_banner[0]; ?>"
-										media="(max-width: 1180px)" />
-									<source
-										srcset="<?php echo $retina_page_banner[0]; ?>"
-										media="(min-width: 1181px)" />
-									<!--[if IE 9]></video><![endif]-->
-									<img srcset="<?php echo $image[0]; ?>">
-								</picture>
 								<h4>
 									<?php the_title(); ?>
 								</h4>
