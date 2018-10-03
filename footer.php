@@ -16,20 +16,11 @@
 
 	<div class="mailing-list-image">
 
-		<?php $mobile_page_banner = wp_get_attachment_image_src(get_field('mailing_list_background_image', 75), 'mailing-banner-mobile'); ?>
-		<?php $desktop_page_banner = wp_get_attachment_image_src(get_field('mailing_list_background_image', 75), 'mailing-banner-desktop'); ?>
-
-		<picture>
-			<!--[if IE 9]><video style="display: none"><![endif]-->
-			<source
-				srcset="<?php echo $mobile_page_banner[0]; ?>"
-				media="(max-width: 768px)" />
-			<source
-				srcset="<?php echo $desktop_page_banner[0]; ?>"
-				media="(min-width: 501px)" />
-			<!--[if IE 9]></video><![endif]-->
-			<img srcset="<?php echo $image[0]; ?>">
-		</picture>
+		<?php
+			// Outputting an image using Image ID as the Return Value
+			$neat_responsive_image_id = get_field('lead_in_image', 75);
+			echo wp_get_attachment_image( $neat_responsive_image_id, 'full' );
+		?>
 
 	</div>
 
