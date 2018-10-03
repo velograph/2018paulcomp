@@ -17,7 +17,7 @@ get_header( 'shop' ); ?>
 
 <?php get_template_part('parts/breadcrumbs'); ?>
 
-<section class="shop-categories">
+<section class="portal-containers">
 
 	<?php
 		$term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) );
@@ -25,7 +25,7 @@ get_header( 'shop' ); ?>
 		$children = get_term_children($term->term_id, get_query_var('taxonomy')); // get children
 		if ($term->parent === 0) { ?>
 
-		<div class="portal-container page-content <?php echo $term->slug; ?>">
+		<div class="portal-container <?php echo $term->slug; ?>-portals">
 
    	 		<?php // Components ?>
    	 		<?php
@@ -109,7 +109,7 @@ get_header( 'shop' ); ?>
 
 			<?php if ( have_posts() ) : ?>
 
-				<div class="portal-container page-content">
+				<div class="portal-container">
 
 					<?php while ( have_posts() ) : the_post(); ?>
 

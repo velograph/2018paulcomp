@@ -1,6 +1,6 @@
 <section class="portal-containers">
 
-	<div class="component-portals portal-container">
+	<div class="components-portals portal-container">
 
 		<h2><a href="/product-category/components/">Components</a></h2>
 		<?php

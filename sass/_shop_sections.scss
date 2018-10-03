@@ -70,7 +70,7 @@ $accessories-apparel--tablet-up: (
 		margin: 0 auto;
 		width: 75%;
 	}
-	.component-portals,
+	.components-portals,
 	.service-parts-portals {
 		.portal {
 			@include grid-column(1, $mobile-portals);
@@ -83,20 +83,6 @@ $accessories-apparel--tablet-up: (
 				@include grid-column(1, $components--tablet-up);
 				text-transform: uppercase;
 			}
-		}
-	}
-	.service-parts-portals {
-		.portal {
-			@include grid-column(1, $mobile-portals);
-
-			@include grid-media($service-parts--to-tablet) {
-				@include grid-column(1, $service-parts--to-tablet);
-			}
-
-			@include grid-media($service-parts--tablet-up) {
-				@include grid-column(1, $service-parts--tablet-up);
-			}
-
 		}
 	}
 	.accessories-apparel-portals {
