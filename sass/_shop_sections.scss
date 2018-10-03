@@ -1,0 +1,93 @@
+$mobile-portals: (
+	columns: 2,
+	gutter: .5rem,
+	media: "(max-width: 460px)",
+);
+
+$components--tablet-up: (
+  columns: 5,
+  gutter: 2rem,
+  media: "(min-width: 768px)",
+);
+
+$service-parts--tablet-up: (
+  columns: 4,
+  gutter: 2rem,
+  media: "(min-width: 768px)",
+);
+
+$accessories-apparel--tablet-up: (
+  columns: 6,
+  gutter: 2rem,
+  media: "(min-width: 768px)",
+);
+
+.portal-containers {
+	@include grid-container();
+	margin: 0 auto;
+	max-width: 1200px;
+	.portal-container {
+		@include grid-container();
+		padding: $xsmallspace 0 $smallspace 0;
+		text: {
+			align: center;
+			transform: uppercase;
+		}
+		a {
+			color: $gray;
+			&:hover {
+				color: $orange;
+			}
+		}
+		.portal {
+			img {
+				margin: 0 auto;
+				width: 75%;
+			}
+			@include grid-media($mobile-portals) {
+				h4 {
+					font-size: .8rem;
+				}
+			}
+		}
+	}
+	.shop-border {
+		@include grid-container;
+		background: $gray;
+		height: 1px;
+		margin: 0 auto;
+		width: 75%;
+	}
+	.component-portals {
+		.portal {
+			@include grid-column(1, $mobile-portals);
+
+			@include grid-media($components--tablet-up) {
+				@include grid-column(1, $components--tablet-up);
+				text-transform: uppercase;
+			}
+		}
+	}
+	.service-parts-portals {
+		.portal {
+			@include grid-column(1, $mobile-portals);
+
+			@include grid-media($service-parts--tablet-up) {
+				@include grid-column(1, $service-parts--tablet-up);
+			}
+
+		}
+	}
+	.accessories-apparel-portals {
+		.portal {
+			@include grid-column(1, $mobile-portals);
+
+			@include grid-media($accessories-apparel--tablet-up) {
+				@include grid-column(1, $accessories-apparel--tablet-up);
+				// &:first-of-type {
+					@include grid-shift(2, $accessories-apparel--tablet-up);
+				// }
+			}
+		}
+	}
+}
