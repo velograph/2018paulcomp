@@ -261,3 +261,28 @@ $font-stack-monaco: (
   "Lucida Console",
   monospace,
 );
+
+/* Paul Specific Fonts */
+@import url('https://fonts.googleapis.com/css?family=Merriweather:300i,400');
+$merriweather: (
+    'Merriweather',
+    "Palatino",
+    "Palatino Linotype",
+    "Palatino LT STD",
+    "Book Antiqua",
+    Georgia,
+    serif,
+);
+
+$open_sans: (
+    "Open Sans",
+    "Helvetica",
+    "Roboto",
+    "Arial",
+    sans-serif,
+);
+
+$arial: (
+    "Arial",
+    sans-serif,
+);
