@@ -116,3 +116,12 @@ body {
 		margin: 0;
 	}
 }
+
+.breadcrumbs-container {
+	margin-left: 1rem;
+	padding: $xxsmallspace 0;
+	text-transform: uppercase;
+	a {
+		color: $orange;
+	}
+}
