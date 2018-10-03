@@ -37,6 +37,7 @@ $neat-mobile: (
 @import "footer";
 
 body {
+	background: $background;
 	color: $dark-gray;
 	font: {
 		family: $open_sans;
@@ -124,4 +125,11 @@ body {
 	a {
 		color: $orange;
 	}
+}
+
+.woocommerce-message {
+	background: $green;
+	color: $white;
+	padding: $xxsmallspace;
+	text-align: center;
 }
