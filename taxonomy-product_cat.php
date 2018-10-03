@@ -61,14 +61,16 @@ get_header( 'shop' ); ?>
    	 	</div>
 
 		<?php } if(($parent->term_id!="" && sizeof($children)>0)) { ?>
-			<?php
-				$current_term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) );
-				$terms = get_terms( 'product_cat', array(
-					'hide_empty' => 1,
-					'orderby' => 'name',
-					'child_of' => $current_term->term_id,
-				) );
-				?>
+
+			<div class="middle-tier-categories">
+				<?php
+					$current_term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) );
+					$terms = get_terms( 'product_cat', array(
+						'hide_empty' => 1,
+						'orderby' => 'name',
+						'child_of' => $current_term->term_id,
+					) );
+					?>
 
 				<?php
 				// now run a query for each product family
@@ -83,33 +85,35 @@ get_header( 'shop' ); ?>
 					);
 					$query = new WP_Query( $args ); ?>
 
-						<?php while ( $query->have_posts() ) : ?>
+					<?php while ( $query->have_posts() ) : ?>
 
-							<?php $query->the_post(); ?>
+						<?php $query->the_post(); ?>
 
-							<div class="portal" id="post-<?php the_ID(); ?>">
-								<a href="<?php the_permalink(); ?>">
-									<?php
-										// Outputting an image using Image ID as the Return Value
-										echo wp_get_attachment_image( get_post_thumbnail_id( $post->ID ), 'full' );
-									?>
-									<h4>
-										<?php the_title(); ?>
-									</h4>
-									<h6><?php echo $term->name; ?></h6>
+						<div class="portal" id="post-<?php the_ID(); ?>">
+							<a href="<?php the_permalink(); ?>">
+								<?php
+									// Outputting an image using Image ID as the Return Value
+									echo wp_get_attachment_image( get_post_thumbnail_id( $post->ID ), 'full' );
+								?>
+								<h4>
+									<?php the_title(); ?>
+								</h4>
+								<h6><?php echo $term->name; ?></h6>
 
-								</a>
-							</div>
+							</a>
+						</div>
 
-						<?php endwhile; ?>
+					<?php endwhile; ?>
 
-					<?php wp_reset_postdata(); } ?>
+				<?php wp_reset_postdata(); } ?>
+
+			</div>
 
 		<?php } elseif(($parent->term_id!="") && (sizeof($children)==0)) { ?>
 
 			<?php if ( have_posts() ) : ?>
 
-				<div class="portal-container">
+				<div class="middle-tier-categories">
 
 					<?php while ( have_posts() ) : the_post(); ?>
 

@@ -38,18 +38,22 @@ $accessories-apparel--tablet-up: (
 	@include grid-container();
 	margin: 0 auto;
 	max-width: 1200px;
-	.portal-container {
+	a {
+		color: $gray;
+		&:hover {
+			color: $orange;
+		}
+	}
+	h6 {
+		text-align: center;
+	}
+	.portal-container,
+	.middle-tier-categories {
 		@include grid-container();
 		padding: $xsmallspace 0 $smallspace 0;
 		text: {
 			align: center;
 			transform: uppercase;
-		}
-		a {
-			color: $gray;
-			&:hover {
-				color: $orange;
-			}
 		}
 		.portal {
 			img {
@@ -71,7 +75,8 @@ $accessories-apparel--tablet-up: (
 		width: 75%;
 	}
 	.components-portals,
-	.service-parts-portals {
+	.service-parts-portals,
+	.middle-tier-categories {
 		.portal {
 			@include grid-column(1, $mobile-portals);
 
