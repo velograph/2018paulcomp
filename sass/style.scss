@@ -21,6 +21,14 @@ $neat-large: (
 	media: '(min-width: 1366px)',
 );
 
+$neat-tablet: (
+	media: "(min-width: 768px)",
+);
+
+$neat-mobile: (
+	media: '(max-width: 460px)',
+);
+
 @import "variables";
 @import "slick";
 @import "header";
@@ -31,7 +39,7 @@ $neat-large: (
 body {
 	color: $dark-gray;
 	font: {
-		family: $source_pro;
+		family: $open_sans;
 		size: $base-font-size;
 		weight: 300;
 	}

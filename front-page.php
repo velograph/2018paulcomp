@@ -39,23 +39,22 @@ get_header(); ?>
 <!-- Begin Story Section -->
 
 	<section class="story-lead-in-container">
-		<?php
-			// Outputting an image using Image ID as the Return Value
-			$neat_responsive_image_id = get_field('story_leading_image');
-			echo wp_get_attachment_image( $neat_responsive_image_id, 'full' );
-		?>
-
-		<div class="empty-column">&nbsp;</div>
+		<div class="story-image">
+			<?php
+				// Outputting an image using Image ID as the Return Value
+				$neat_responsive_image_id = get_field('story_leading_image');
+				echo wp_get_attachment_image( $neat_responsive_image_id, 'full' );
+			?>
+		</div>
 
 		<div class="story-lead-in page-content">
 			<h1><?php the_field('story_title'); ?></h1>
 
-			<div class="lead-in-copy story-content">
+			<div class="story-content">
 				<?php the_field('story_content'); ?>
-				<p><a href="/story">Keep Reading ></a></p>
+				<p class="keep-reading"><a href="/story">Keep Reading ></a></p>
 			</div>
 		</div>
-		<div class="empty-column">&nbsp;</div>
 
 	</section><!-- .story-lead-in -->
 
