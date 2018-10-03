@@ -18,7 +18,7 @@
 
 		<?php
 			// Outputting an image using Image ID as the Return Value
-			$neat_responsive_image_id = get_field('lead_in_image', 75);
+			$neat_responsive_image_id = get_field('mailing_list_background_image', 75);
 			echo wp_get_attachment_image( $neat_responsive_image_id, 'full' );
 		?>
 
