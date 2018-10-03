@@ -3,18 +3,6 @@ $frontpage-container: (
   gutter: 2rem,
 );
 
-$components--tablet-up: (
-  columns: 5,
-  gutter: 2rem,
-  media: "(min-width: 768px)",
-);
-
-$service-parts--tablet-up: (
-  columns: 4,
-  gutter: 2rem,
-  media: "(min-width: 768px)",
-);
-
 $frontpage-desktop: (
 	columns: 12,
 	gutter: 1rem,
@@ -51,61 +39,6 @@ $centered-columns: (
 	gutter: 2rem,
 	media: "(min-width: 768px)",
 );
-
-.portal-containers {
-	@include grid-container;
-	color: $gray;
-	text-align: center;
-	text-transform: uppercase;
-	a {
-		color: $gray;
-	}
-	.portal-container {
-		padding: $smallspace 0;
-	}
-	.component-portals {
-		@include grid-container();
-		@include grid-media($components--tablet-up) {
-			border-bottom: 1px solid $gray;
-			margin: 0 $xlargespace;
-		}
-		.portal {
-			@include grid-column(1, $frontpage-container);
-            @include grid-media($components--tablet-up) {
-    			@include grid-column(1);
-    		}
-		}
-	}
-	.service-parts-portals {
-		@include grid-container();
-		@include grid-media($components--tablet-up) {
-			border-bottom: 1px solid $gray;
-			margin: 0 $xxlargespace;
-		}
-		.portal {
-			@include grid-column(1, $frontpage-container);
-			@include grid-media($service-parts--tablet-up) {
-				@include grid-column(1);
-			}
-		}
-	}
-	.accessories-apparel-portals {
-		@include grid-container();
-		.empty-column {
-			@include grid-media($centered-columns) {
-				@include grid-column(1);
-			}
-		}
-		.portals {
-			@include grid-media($centered-columns) {
-				@include grid-column(1);
-			}
-			.portal {
-				@include grid-column(6);
-			}
-		}
-	}
-}
 
 $lead-in-story: (
 	columns: 8,
