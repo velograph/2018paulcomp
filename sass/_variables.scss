@@ -1,6 +1,8 @@
+/* Colors */
 $orange: #d7512f;
 $orange-overlay: rgba(215,81,47,.6);
 $orange-hover: #de8c63;
+$green: #6c9;
 $black: #000;
 $dark-gray: #3e4649;
 $gray: #6e7476;
@@ -10,8 +12,7 @@ $white: #e6e7e8;
 $background: #fff;
 $overlay: rgba(0,0,0,.4);
 
-$green: #6c9;
-
+/* Percentage spacings */
 $xxsmallspace: 1%;
 $xsmallspace: 2%;
 $smallspace: 3%;
@@ -20,6 +21,7 @@ $largespace: 10%;
 $xlargespace: 15%;
 $xxlargespace: 20%;
 
+/* Number spacings */
 $five: 5px;
 $ten: 10px;
 $fifteen: 15px;
@@ -29,6 +31,7 @@ $thirty: 30px;
 $fifty: 50px;
 $hundred: 100px;
 
+/* Font Sizes */
 $base-font-size: 16px;
 $h1-font-size: $base-font-size * 2.25;
 $h2-font-size: $base-font-size * 2;
@@ -36,3 +39,6 @@ $h3-font-size: $base-font-size * 1.75;
 $h4-font-size: $base-font-size * 1.5;
 $h5-font-size: $base-font-size * 1.15;
 $h6-font-size: $base-font-size;
+
+/* Fonts */
+$palatino: "Palatino", "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
