@@ -4,16 +4,28 @@ $mobile-portals: (
 	media: "(max-width: 460px)",
 );
 
+$components--to-tablet: (
+	columns: 3,
+	gutter: 1rem,
+	media: "(max-width: 768px)",
+);
+
 $components--tablet-up: (
   columns: 5,
   gutter: 2rem,
-  media: "(min-width: 768px)",
+  media: "(min-width: 769px)",
+);
+
+$service-parts--to-tablet: (
+	columns: 3,
+	gutter: 1rem,
+	media: "(max-width: 768px)",
 );
 
 $service-parts--tablet-up: (
   columns: 4,
   gutter: 2rem,
-  media: "(min-width: 768px)",
+  media: "(min-width: 769px)",
 );
 
 $accessories-apparel--tablet-up: (
@@ -58,9 +70,14 @@ $accessories-apparel--tablet-up: (
 		margin: 0 auto;
 		width: 75%;
 	}
-	.component-portals {
+	.component-portals,
+	.service-parts-portals {
 		.portal {
 			@include grid-column(1, $mobile-portals);
+
+			@include grid-media($components--to-tablet) {
+				@include grid-column(1, $components--to-tablet);
+			}
 
 			@include grid-media($components--tablet-up) {
 				@include grid-column(1, $components--tablet-up);
@@ -71,6 +88,10 @@ $accessories-apparel--tablet-up: (
 	.service-parts-portals {
 		.portal {
 			@include grid-column(1, $mobile-portals);
+
+			@include grid-media($service-parts--to-tablet) {
+				@include grid-column(1, $service-parts--to-tablet);
+			}
 
 			@include grid-media($service-parts--tablet-up) {
 				@include grid-column(1, $service-parts--tablet-up);
