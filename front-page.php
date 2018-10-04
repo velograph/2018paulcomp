@@ -18,7 +18,6 @@ get_header(); ?>
 		<section class="lead-image">
 
 			<?php
-				// Outputting an image using Image ID as the Return Value
 				$neat_responsive_image_id = get_field('lead_in_image');
 				echo wp_get_attachment_image( $neat_responsive_image_id, 'full' );
 			?>
