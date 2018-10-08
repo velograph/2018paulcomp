@@ -1,0 +1,116 @@
+$mobile-product: (
+	columns: 1,
+	gutter: .5rem,
+	media: "(max-width: 460px)",
+);
+
+$product--tablet-up: (
+	columns: 2,
+	gutter: 2rem,
+	media: "(min-width: 769px)",
+);
+
+$variations--buttons: (
+	columns: 6,
+	gutter: 1.25rem,
+);
+
+$tech-specs: (
+	columns: 6,
+	gutter: 1.5rem,
+);
+
+.product-container {
+	@include grid-container();
+	margin: 0 auto;
+	max-width: 1200px;
+	.column-one,
+	.column-two {
+		@include grid-column(1, $mobile-product);
+
+		@include grid-media($product--tablet-up) {
+			@include grid-column(1, $product--tablet-up);
+		}
+	}
+	.column-two {
+
+	}
+	h3 {
+		text-transform: uppercase;
+	}
+	.tech-specs {
+		ul {
+			@include grid-container();
+			margin: 0;
+			padding: 0;
+			li {
+				@include grid-collapse();
+				display: flex;
+				margin-bottom: $xxsmallspace;
+				.key {
+					@include grid-column(2, $tech-specs);
+				}
+				.value {
+					@include grid-column(4, $tech-specs);
+					.accordion-hook {
+						color: $orange;
+					}
+				}
+			}
+		}
+	}
+	.product-top {
+		.product-gallery-container,
+		.product-add-to-cart {
+			@include grid-column(1, $mobile-product);
+
+			@include grid-media($product--tablet-up) {
+				@include grid-column(1, $product--tablet-up);
+			}
+		}
+		.product-add-to-cart {
+			.variations_form {
+				.label,
+				.value {
+					display: block;
+				}
+				.value {
+					select {
+						border: {
+							radius: 0;
+							color: $orange;
+						}
+						-webkit-border-radius: 0px;
+					}
+				}
+				.single_variation_wrap {
+					.quantity {
+						label {
+							display: block;
+						}
+						.qty {
+							border-color: $orange;
+							border-style: solid;
+							border-width: 1px;
+							padding: 13px 15px;
+							width: 50%;
+						}
+					}
+					.variations_button {
+						@include grid-container();
+						@include grid-collapse();
+						.quantity {
+							@include grid-column(1, $variations--buttons);
+						}
+						.single_add_to_cart_button {
+							@include grid-column(3, $variations--buttons);
+						}
+					}
+				}
+			}
+		}
+	}
+	.product-middle {
+		clear: both;
+	}
+}
