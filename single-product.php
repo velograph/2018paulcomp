@@ -69,9 +69,9 @@ get_header(); ?>
 	<?php if ( wp_is_mobile() ) : ?>
 		<?php while ( have_posts() ) : the_post(); ?>
 
-			<section class="product-section product-top">
+			<section class="product-top">
 
-				<div class="product-gallery-container">
+				<div class="product-gallery-container product-section">
 
 					<div class="product-image">
 
@@ -123,7 +123,7 @@ get_header(); ?>
 
 				</div>
 
-				<div class="product-add-to-cart">
+				<div class="product-add-to-cart product-section">
 
 					<h3><?php the_title(); ?></h3>
 
@@ -165,9 +165,9 @@ get_header(); ?>
 
 			</section>
 
-			<section class="product-section product-middle">
+			<section class="product-middle">
 
-				<div class="tech-specs">
+				<div class="tech-specs product-section">
 
 					<!-- Tech Specifications Content -->
 					<?php if( have_rows('technical_specification_rows') ) : ?>
@@ -220,7 +220,7 @@ get_header(); ?>
 
 				<?php if( have_rows('video_repeater') ) : ?>
 
-					<div class="supporting-video-container">
+					<div class="supporting-video-container product-section">
 						<?php while ( have_rows('video_repeater') ) : ?>
 
 							<?php the_row(); ?>
@@ -233,7 +233,7 @@ get_header(); ?>
 					</div>
 
 				<?php elseif( the_content() ) : ?>
-					<div class="product-story">
+					<div class="product-story product-section">
 						<?php
 							if($post->content=="")
 							{ ?>
@@ -258,7 +258,7 @@ get_header(); ?>
 			<?php else: ?>
 			<?php endif; ?>
 
-			<section class="product-section related-products">
+			<section class="related-products product-section">
 				<!-- <h3>Related Products</h3> -->
 				<?php
 					remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10 );

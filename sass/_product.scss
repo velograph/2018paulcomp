@@ -179,15 +179,12 @@ $related-products: (
 			}
 		}
 	}
-	.product-top {
-		.product-gallery-container,
-		.slick-slider,
-		.product-add-to-cart {
+	.product-top,
+	.product-middle,
+	.product-bottom {
+		.product-section {
 			@include grid-column(1, $mobile-product);
-
-			@include grid-media($product--tablet-up) {
-				@include grid-column(1, $product--tablet-up);
-			}
+			margin-bottom: $largespace;
 		}
 
 	}
