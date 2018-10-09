@@ -10,6 +10,7 @@ get_header(); ?>
 <script>
 
 	jQuery(document).ready(function(){
+
 		jQuery(".woocommerce-message").delay(5000).slideToggle("slow");
 
 		jQuery('.product-image').slick({
@@ -33,11 +34,6 @@ get_header(); ?>
 		  dots: true,
 		  arrows: false,
 		});
-
-		var video_width = jQuery('.supporting-video-container').width();
-		var iframe_height = ( video_width * ('.' + 5) );
-		// jQuery('.supporting-video-container').css('height', iframe_height);
-		// jQuery('.supporting-video iframe').css('height', iframe_height);
 
 		jQuery(".accordion").hide();
 		jQuery('.value').each(function() {
@@ -67,6 +63,7 @@ get_header(); ?>
 <section class="product-container">
 
 	<?php if ( wp_is_mobile() ) : ?>
+
 		<?php while ( have_posts() ) : the_post(); ?>
 
 			<section class="product-top">
@@ -220,6 +217,18 @@ get_header(); ?>
 
 				<?php if( have_rows('video_repeater') ) : ?>
 
+					<script>
+
+						jQuery(document).ready(function(){
+
+							var video_width = jQuery('.supporting-video-container').width();
+							var iframe_height = ( video_width * ('.' + 5) );
+							jQuery('.supporting-video-container').css('height', iframe_height);
+							jQuery('.supporting-video iframe').css('height', iframe_height);
+						});
+					</script>
+
+
 					<div class="supporting-video-container product-section">
 						<?php while ( have_rows('video_repeater') ) : ?>
 
@@ -249,23 +258,28 @@ get_header(); ?>
 			</section>
 
 			<?php if( have_rows('video_repeater') ) : ?>
-				<section class="product-section product-bottom">
-					<div class="product-story">
+
+				<section class="product-bottom">
+
+					<div class="product-story product-section">
 						<h3>Product Story</h3>
 						<?php the_content(); ?>
 					</div>
-				</section>
-			<?php else: ?>
-			<?php endif; ?>
 
-			<section class="related-products product-section">
-				<!-- <h3>Related Products</h3> -->
-				<?php
-					remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10 );
-					remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_upsell_display', 15 );
-					do_action( 'woocommerce_after_single_product_summary' );
-				?>
-			</section>
+					<div class="related-products product-section">
+						<h3>Related Products</h3>
+						<?php
+							remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10 );
+							remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_upsell_display', 15 );
+							do_action( 'woocommerce_after_single_product_summary' );
+						?>
+					</div>
+
+				</section>
+
+			<?php else: ?>
+
+			<?php endif; ?>
 
 		<?php endwhile; // end of the loop. ?>
 

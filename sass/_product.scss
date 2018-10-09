@@ -115,8 +115,10 @@ $related-products: (
 			}
 		}
 	}
-	h3.supporting-video-title {
-		margin: 0;
+	.column-one {
+		h3.supporting-video-title {
+			margin: 0;
+		}
 	}
 	.supporting-video-container {
 		.slick-track {
@@ -190,5 +192,27 @@ $related-products: (
 	}
 	.product-middle {
 		clear: both;
+		h3.supporting-video-title {
+			margin-left: .5rem;
+		}
+		.supporting-video-container {
+			margin-bottom: $xxlargespace;
+		}
+		.slick-dots {
+			bottom: auto;
+		}
+	}
+	.product-bottom {
+		h3 {
+			margin: 0 0 $smallspace 0;
+		}
+		.products {
+			.product {
+				img {
+					margin: 0 auto;
+					max-width: 50%;
+				}
+			}
+		}
 	}
 }
