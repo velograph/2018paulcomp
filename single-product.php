@@ -8,29 +8,56 @@
 get_header(); ?>
 
 <script>
-jQuery(document).ready(function(){
 
-	// jQuery(".woocommerce-message").delay(5000).slideToggle("slow");
+	jQuery(document).ready(function(){
+		jQuery(".woocommerce-message").delay(5000).slideToggle("slow");
 
-	jQuery(".accordion").hide();
-	jQuery('.value').each(function() {
-		var $dropdown = jQuery(this);
+		jQuery('.product-image').slick({
+		  slidesToShow: 1,
+		  slidesToScroll: 1,
+		  arrows: false,
+		  asNavFor: '.product-thumbs'
+		});
+		jQuery('.product-thumbs').slick({
+		  slidesToShow: 3,
+		  slidesToScroll: 1,
+		  arrows: false,
+		  asNavFor: '.product-image',
+		  dots: false,
+		  focusOnSelect: true
+		});
 
-		jQuery(".accordion-hook", $dropdown).click(function(e) {
-		  e.preventDefault();
-		  $div = jQuery(".accordion", $dropdown);
-		  $div.toggle('blind');
-		  jQuery(".accordion").not($div).hide('blind');
-		  return false;
+		jQuery('.supporting-video-container').slick({
+		  slidesToShow: 1,
+		  slidesToScroll: 1,
+		  dots: true,
+		  arrows: false,
+		});
+
+		var video_width = jQuery('.supporting-video-container').width();
+		var iframe_height = ( video_width * ('.' + 5) );
+		// jQuery('.supporting-video-container').css('height', iframe_height);
+		// jQuery('.supporting-video iframe').css('height', iframe_height);
+
+		jQuery(".accordion").hide();
+		jQuery('.value').each(function() {
+			var $dropdown = jQuery(this);
+
+			jQuery(".accordion-hook", $dropdown).click(function(e) {
+			  e.preventDefault();
+			  $div = jQuery(".accordion", $dropdown);
+			  $div.toggle('blind');
+			  jQuery(".accordion").not($div).hide('blind');
+			  return false;
+			});
+
+		});
+
+		jQuery('html').click(function(){
+			jQuery(".accordion").hide('blind');
 		});
 
 	});
-
-	  jQuery('html').click(function(){
-		jQuery(".accordion").hide('blind');
-	  });
-
-});
 </script>
 
 <?php do_action( 'woocommerce_before_single_product' ); ?>
@@ -44,37 +71,6 @@ jQuery(document).ready(function(){
 
 			<section class="product-section product-top">
 
-				<script>
-					jQuery(document).ready(function(){
-						jQuery('.product-image').slick({
-						  slidesToShow: 1,
-						  slidesToScroll: 1,
-						  arrows: false,
-						  asNavFor: '.product-thumbs'
-						});
-						jQuery('.product-thumbs').slick({
-						  slidesToShow: 3,
-						  slidesToScroll: 1,
-						  arrows: false,
-						  asNavFor: '.product-image',
-						  dots: false,
-						  focusOnSelect: true
-						});
-
-						jQuery('.supporting-video-container').slick({
-						  slidesToShow: 1,
-						  slidesToScroll: 1,
-						  dots: true,
-						  arrows: false,
-						});
-
-						var video_width = jQuery('.supporting-video-container').width();
-						var iframe_height = ( video_width * ('.' + 75) );
-						jQuery('.supporting-video-container').css('height', iframe_height);
-						jQuery('.supporting-video iframe').css('height', iframe_height);
-					});
-				</script>
-
 				<div class="product-gallery-container">
 
 					<div class="product-image">
@@ -84,32 +80,16 @@ jQuery(document).ready(function(){
 							<?php
 
 							$images = get_field('gallery');
-							$neat_responsive_image_id = get_field('gallery');
+							$neat_images = get_field('gallery');
 
-							if( $images ): ?>
-								<?php foreach( $images as $image ): ?>
+							if( $neat_images ): ?>
+								<?php foreach( $neat_images as $neat_image ): ?>
 
-									<?php
-										echo wp_get_attachment_image( $image, 'full' );
-									?>
-
-									<picture class="portal-image">
-										<!--[if IE 9]><video style="display: none"><![endif]-->
-										<source
-											srcset="<?php echo $image['sizes']['portal-mobile']; ?>"
-											media="(max-width: 500px)" />
-										<source
-											srcset="<?php echo $image['sizes']['portal-tablet']; ?>"
-											media="(max-width: 860px)" />
-										<source
-											srcset="<?php echo $image['sizes']['portal-desktop']; ?>"
-											media="(max-width: 1180px)" />
-										<source
-											srcset="<?php echo $image['sizes']['portal-retina']; ?>"
-											media="(min-width: 1181px)" />
-										<!--[if IE 9]></video><![endif]-->
-										<img srcset="<?php echo $image['sizes']['portal-desktop']; ?>">
-									</picture>
+									<div class="portal-image">
+										<?php
+											echo wp_get_attachment_image( $neat_image['id'], 'full' );
+										?>
+									</div>
 
 								<?php endforeach; ?>
 							<?php endif; ?>
@@ -235,6 +215,10 @@ jQuery(document).ready(function(){
 				</div>
 
 				<?php if( have_rows('video_repeater') ) : ?>
+					<h3 class="supporting-video-title">Product Videos</h3>
+				<?php endif; ?>
+
+				<?php if( have_rows('video_repeater') ) : ?>
 
 					<div class="supporting-video-container">
 						<?php while ( have_rows('video_repeater') ) : ?>
@@ -284,44 +268,14 @@ jQuery(document).ready(function(){
 			</section>
 
 		<?php endwhile; // end of the loop. ?>
-	<?php else: ?>
+
+	<?php else:  // The following is tablet up styling ?>
+
 		<?php while ( have_posts() ) : the_post(); ?>
 
 			<section class="column-one">
 
-				<script>
-
-					jQuery(document).ready(function(){
-						jQuery('.product-image').slick({
-						  slidesToShow: 1,
-						  slidesToScroll: 1,
-						  arrows: false,
-						  asNavFor: '.product-thumbs'
-						});
-						jQuery('.product-thumbs').slick({
-						  slidesToShow: 3,
-						  slidesToScroll: 1,
-						  arrows: false,
-						  asNavFor: '.product-image',
-						  dots: false,
-						  focusOnSelect: true
-						});
-
-						jQuery('.supporting-video-container').slick({
-						  slidesToShow: 1,
-						  slidesToScroll: 1,
-						  dots: true,
-						  arrows: false,
-						});
-
-						var video_width = jQuery('.supporting-video-container').width();
-						var iframe_height = ( video_width * ('.' + 75) );
-						jQuery('.supporting-video-container').css('height', iframe_height);
-						jQuery('.supporting-video iframe').css('height', iframe_height);
-					});
-				</script>
-
-				<div class="product-gallery-container">
+				<div class="product-gallery-container product-section">
 
 					<div class="product-image">
 
@@ -330,32 +284,16 @@ jQuery(document).ready(function(){
 							<?php
 
 							$images = get_field('gallery');
-							$neat_responsive_image_id = get_field('gallery');
+							$neat_images = get_field('gallery');
 
-							if( $images ): ?>
-								<?php foreach( $images as $image ): ?>
+							if( $neat_images ): ?>
+								<?php foreach( $neat_images as $neat_image ): ?>
 
-									<?php
-										echo wp_get_attachment_image( $image, 'full' );
-									?>
-
-									<picture class="portal-image">
-										<!--[if IE 9]><video style="display: none"><![endif]-->
-										<source
-											srcset="<?php echo $image['sizes']['portal-mobile']; ?>"
-											media="(max-width: 500px)" />
-										<source
-											srcset="<?php echo $image['sizes']['portal-tablet']; ?>"
-											media="(max-width: 860px)" />
-										<source
-											srcset="<?php echo $image['sizes']['portal-desktop']; ?>"
-											media="(max-width: 1180px)" />
-										<source
-											srcset="<?php echo $image['sizes']['portal-retina']; ?>"
-											media="(min-width: 1181px)" />
-										<!--[if IE 9]></video><![endif]-->
-										<img srcset="<?php echo $image['sizes']['portal-desktop']; ?>">
-									</picture>
+									<div class="portal-image">
+										<?php
+											echo wp_get_attachment_image( $neat_image['id'], 'full' );
+										?>
+									</div>
 
 								<?php endforeach; ?>
 							<?php endif; ?>
@@ -390,8 +328,12 @@ jQuery(document).ready(function(){
 				</div>
 
 				<?php if( have_rows('video_repeater') ) : ?>
+					<h3 class="supporting-video-title">Product Videos</h3>
+				<?php endif; ?>
 
-					<div class="supporting-video-container">
+				<?php if( have_rows('video_repeater') ) : ?>
+
+					<div class="supporting-video-container product-section">
 						<?php while ( have_rows('video_repeater') ) : ?>
 
 							<?php the_row(); ?>
@@ -405,8 +347,8 @@ jQuery(document).ready(function(){
 
 				<?php endif; ?>
 
-				<div class="product-section related-products">
-					<!-- <h3>Related Products</h3> -->
+				<div class="related-products product-section">
+					<h3>Related Products</h3>
 					<?php
 						remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10 );
 						remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_upsell_display', 15 );
@@ -418,7 +360,7 @@ jQuery(document).ready(function(){
 
 			<section class="column-two">
 
-				<div class="product-add-to-cart">
+				<div class="product-add-to-cart product-section">
 
 					<h3><?php the_title(); ?></h3>
 
@@ -458,7 +400,7 @@ jQuery(document).ready(function(){
 
 				</div>
 
-				<div class="tech-specs">
+				<div class="tech-specs product-section">
 
 					<!-- Tech Specifications Content -->
 					<?php if( have_rows('technical_specification_rows') ) : ?>
@@ -505,8 +447,10 @@ jQuery(document).ready(function(){
 
 				</div>
 
-				<h3>Product Story</h3>
-				<?php the_content(); ?>
+				<div class="product-story product-section">
+					<h3>Product Story</h3>
+					<?php the_content(); ?>
+				</div>
 
 			</section>
 
