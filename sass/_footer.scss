@@ -141,6 +141,7 @@ $social-icon-grid-no-gutter: (
 		}
 		.icon {
 			@include grid-column(1, $social-icon-grid);
+			@include grid-shift(3);
 			margin-top: 1rem;
 			&:first-of-type {
 				@include grid-media($footer-grid--tablet-up) {
