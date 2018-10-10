@@ -11,8 +11,6 @@ get_header(); ?>
 
 	jQuery(document).ready(function(){
 
-		jQuery(".woocommerce-message").delay(5000).slideToggle("slow");
-
 		jQuery('.product-image').slick({
 		  slidesToShow: 1,
 		  slidesToScroll: 1,
