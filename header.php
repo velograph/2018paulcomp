@@ -23,7 +23,12 @@
 
 <a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'Paul Component Engineering' ); ?></a>
 
-<div id="page" class="hfeed site">
+<?php
+    global $post;
+    $page_slug_name=$post->post_name;
+?>
+
+<div id="page" class="hfeed site page-<?php echo $page_slug_name; ?>">
 
 	<?php //get_template_part('parts/complete-header'); ?>
 
