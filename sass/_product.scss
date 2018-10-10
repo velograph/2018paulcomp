@@ -80,6 +80,9 @@ $related-products: (
 			.value {
 				display: block;
 			}
+			.label {
+				font-size: 12px;
+			}
 			.value {
 				select {
 					border: {
@@ -90,6 +93,13 @@ $related-products: (
 				}
 			}
 			.single_variation_wrap {
+				.woocommerce-variation-price {
+					.price {
+						font-size: $h3-font-size;
+						font-weight: 700;
+						padding: $xsmallspace 0 0;
+					}
+				}
 				.quantity {
 					label {
 						display: block;

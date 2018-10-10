@@ -35,7 +35,8 @@ $neat-mobile: (
 @import "front_page";
 @import "shop_sections";
 @import "product";
-@import "woocommerce";
+@import "cart";
+@import "checkout";
 @import "footer";
 
 body {
@@ -52,6 +53,7 @@ body {
 		transition: all .2s ease-in-out;
 	}
 	a {
+		color: $orange;
 		text-decoration: none;
 	}
 	a:hover {
@@ -135,4 +137,13 @@ body {
 	color: $white;
 	padding: $xxsmallspace;
 	text-align: center;
+	.button {
+		background-color: transparent;
+		border: 1px solid $white;
+		padding: $five $fifteen;
+		&:hover {
+			background-color: $white;
+			color: $gray;
+		}
+	}
 }
