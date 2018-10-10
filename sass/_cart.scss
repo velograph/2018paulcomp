@@ -22,9 +22,11 @@ $related-products: (
 			@include grid-container();
 			margin-bottom: $midspace;
 			.shop_table_responsive {
+				padding: $xsmallspace;
 				@include grid-media($shop-table) {
 					@include grid-column(3);
 					@include grid-shift(1);
+					padding: 0;
 				}
 				thead {
 					tr {
@@ -110,17 +112,19 @@ $related-products: (
 		}
 		.cart-collaterals {
 			@include grid-container();
+			margin: 0 auto;
+			max-width: 1200px;
 			.cross-sells {
 				h2 {
 					text-align: center;
 				}
 				.products {
+					padding: 0;
 					.product {
 						margin-bottom: $smallspace;
 						text-align: center;
 						@include grid-media($related-products) {
 							@include grid-column(1, $related-products);
-							@include grid-shift(1);
 						}
 						a {
 							color: $gray;
