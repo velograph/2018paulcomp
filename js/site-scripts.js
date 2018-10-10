@@ -9,14 +9,6 @@ jQuery(document).ready(function(){
 		});
 	}
 
-	// Sticky header if the logo isn't the circle
-	// if (jQuery(window).width() > 860) {
-	//
-	// 	// Desktop sticky header
-	// 	jQuery(".desktop-header").sticky({
-	// 		topSpacing: 0
-	// 	});
-	// }
-
+	jQuery(".woocommerce-message").delay(5000).slideToggle("slow");
 
 });
