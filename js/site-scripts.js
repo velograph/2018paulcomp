@@ -9,6 +9,6 @@ jQuery(document).ready(function(){
 		});
 	}
 
-	jQuery(".woocommerce-message").delay(5000).slideToggle("slow");
+	jQuery(".woocommerce-message").delay(10000).slideToggle("slow");
 
 });
