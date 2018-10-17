@@ -18,9 +18,11 @@ get_header(); ?>
 		<section class="lead-image">
 
 			<?php
-				$neat_responsive_image_id = get_field('lead_in_image');
-				echo wp_get_attachment_image( $neat_responsive_image_id, 'full' );
+				echo wp_get_attachment_image( get_field('lead_in_image'), 'full' );
 			?>
+
+			<div class="image-lead-link-text">
+				<a href="<?php the_field('image_link_destination'); ?>"><?php the_field('image_link_text'); ?></a>
 
 		</section>
 
