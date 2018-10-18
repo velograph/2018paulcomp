@@ -48,7 +48,7 @@ get_header(); ?>
 			?>
 		</div>
 
-		<div class="story-lead-in page-content">
+		<div class="story-lead-in">
 			<h1><?php the_field('story_title'); ?></h1>
 
 			<div class="story-content">
