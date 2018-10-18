@@ -39,7 +39,7 @@ $accessories-apparel--tablet-up: (
 	margin: 0 auto;
 	max-width: 1200px;
 	a {
-		color: $gray;
+		color: $dark-gray;
 		&:hover {
 			color: $orange;
 		}
@@ -79,10 +79,6 @@ $accessories-apparel--tablet-up: (
 	.middle-tier-categories {
 		.portal {
 			@include grid-column(1, $mobile-portals);
-
-			@include grid-media($components--to-tablet) {
-				@include grid-column(1, $components--to-tablet);
-			}
 
 			@include grid-media($components--tablet-up) {
 				@include grid-column(1, $components--tablet-up);

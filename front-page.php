@@ -23,6 +23,7 @@ get_header(); ?>
 
 			<div class="image-lead-link-text">
 				<a href="<?php the_field('image_link_destination'); ?>"><?php the_field('image_link_text'); ?></a>
+			</div>
 
 		</section>
 

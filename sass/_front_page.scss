@@ -1,3 +1,9 @@
+$frontpage-container--mobile: (
+    columns: 12,
+    gutter: .5rem,
+    media: "(max-width: 460px)",
+);
+
 $frontpage-container: (
   columns: 2,
   gutter: 2rem,
@@ -12,10 +18,43 @@ $frontpage-desktop: (
 .front-page-leader {
 	@include grid-container();
 	.lead-image {
+        position: relative;
+        text-align: center;
+        .image-lead-link-text {
+            @include grid-media($frontpage-container--mobile) {
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+            }
+            bottom: $midspace;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            a {
+                color: $white;
+                @include grid-media($frontpage-container--mobile) {
+                    font: {
+                        size: $h6-font-size;
+                    }
+                }
+                font: {
+                    family: $merriweather;
+                    style: italic;
+                    size: $h3-font-size;
+                }
+                &:hover {
+                    color: $orange;
+                }
+            }
+        }
 	}
 	.lead-in-copy-container {
 		.lead-in-copy {
-			@include grid-column(8);
+            @include grid-media($frontpage-container--mobile) {
+                @include grid-column(10);
+    			@include grid-shift(1);
+            }
+            @include grid-column(8);
 			@include grid-shift(2);
 			border-bottom: 1px solid $gray;
 			padding: $smallspace 0;
@@ -31,7 +70,6 @@ $frontpage-desktop: (
 				}
                 line-height: 40px;
 			}
-			// padding: $largespace 0;
 		}
 	}
 }
@@ -43,6 +81,10 @@ $frontpage-desktop: (
             float: left;
         }
     }
+    h1 {
+        margin-top: 0;
+        text-transform: uppercase;
+    }
 	.story-lead-in {
         padding: $midspace;
         @include grid-media($neat-large) {
@@ -51,10 +93,6 @@ $frontpage-desktop: (
         	max-width: 1000px;
             padding: $smallspace 0;
         }
-        h1 {
-            margin-top: 0;
-    		text-transform: uppercase;
-    	}
         .story-content {
             font: {
                 family: $arial;
