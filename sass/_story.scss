@@ -37,6 +37,7 @@ $story-two-up-full--tablet-up: (
 	}
 	.full-banner-image {
 		@include grid-container();
+		// @include grid-collapse();
 		margin-top: $smallspace;
 		&:first-of-type {
 			margin-top: 0;
@@ -47,6 +48,11 @@ $story-two-up-full--tablet-up: (
 	}
 	.body-copy {
 		@include grid-container();
+
+		@include grid-media( $story-two-up--mobile) {
+			@include grid-column(1, $story-two-up--mobile);
+		}
+
 		clear: both;
 		margin: $smallspace auto 0;
 		max-width: 800px;
