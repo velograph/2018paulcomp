@@ -1,7 +1,21 @@
+$mailing--mobile: (
+	columns: 1,
+	gutter: 1rem,
+	media: "(max-width: 460px)",
+);
+
+$mailing--tablet-up: (
+	columns: 12,
+	gutter: 2rem,
+	media: "(min-width: 461px)",
+);
+
+
 .mailing-signup {
 	@include grid-container();
 	position: relative;
 	.mailing-list-image {
+		max-height: 800px;
 		z-index: 0;
 		img {
 			float: left;
@@ -14,39 +28,56 @@
 		top: 50%;
 		transform: translateY(-50%);
 		width: 100%;
-		.epm-sign-up-form {
-			.epm-form-field {
+		.mc4wp-form {
+			.mc4wp-form-fields {
 				margin: 0 auto;
 				width: 50%;
 			}
-			label[for="epm-email"],
-			input[type="submit"] {
+			p {
+				margin: 0;
+			}
+			label {
 				display: none;
 			}
 			input[type="email"] {
-				margin: 0 auto $twentyfive;
-				padding: $five $five $five 35px;
-				@include grid-media( $neat-large ) {
+				margin: 0 auto $smallspace;
+				padding: $xxsmallspace $xxsmallspace $xxsmallspace 35px;
+				@include grid-media( $mailing--tablet-up ) {
 					width: 50%;
 				}
 				background: {
 					image: url('../images/envelope.svg');
 				}
 			}
+			input[type="submit"] {
+				background: $blue;
+				color: $white;
+				border: 0;
+				font-size: $h5-font-size;
+				margin-bottom: $smallspace;
+				padding: $xsmallspace $smallspace;
+				text-transform: uppercase;
+			}
 		}
 		h1 {
-			// font-size: $h3-font-size / 1.5;
-			margin: $fifteen 0;
-			@include grid-media( $neat-large ) {
-				// font-size: $h1-font-size;
-				margin-bottom: $twentyfive;
+			font-size: $h6-font-size;
+			margin: 0 0 $xsmallspace;
+			@include grid-media( $mailing--tablet-up ) {
+				font-size: $h1-font-size;
+				margin: $fifteen 0 $smallspace;
 			}
 		}
 		blockquote {
 			color: $white;
+			font: {
+				family: $merriweather;
+				size: 10px;
+				style: italic;
+			}
 			margin: 0 auto;
 			padding: 0 $twentyfive;
-			@include grid-media( $neat-large ) {
+			@include grid-media( $mailing--tablet-up ) {
+				font-size: $h4-font-size;
 				width: 45%;
 			}
 		}

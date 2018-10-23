@@ -72,9 +72,6 @@ $story-two-up-full--tablet-up: (
 				line-height: 40px;
 			}
 		}
-		.content {
-
-		}
 	}
 	.two-small-photos {
 		@include grid-container();
@@ -139,6 +136,14 @@ $story-two-up-full--tablet-up: (
 		}
 	}
 	.call-to-action {
-
+		position: relative;
+		.call-to-action-content {
+			color: $white;
+			left: 50%;
+			position: absolute;
+			text-align: center;
+			top: 50%;
+			transform: translate(-50%,-50%);
+		}
 	}
 }

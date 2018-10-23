@@ -116,21 +116,15 @@ get_header(); ?>
 
 						<div class="call-to-action">
 
-							<div class="title">
-
+							<div class="call-to-action-content">
 								<?php the_sub_field('title'); ?>
 
+								<a href="<?php the_sub_field('button_link'); ?>" class="button">
+									<?php the_sub_field('button_text'); ?>
+								</a>
 							</div>
 
-							<div class="story-content">
-
-								<h2><a href="/shop" class="button"><?php the_sub_field('button_text'); ?></a></h2>
-
-								<div class="call-to-action-image">
-									<?php echo wp_get_attachment_image( get_sub_field('image'), 'full' ); ?>
-								</div>
-
-							</div>
+							<?php echo wp_get_attachment_image( get_sub_field('image'), 'full' ); ?>
 
 						</div>
 

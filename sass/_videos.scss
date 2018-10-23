@@ -1,0 +1,70 @@
+$video--mobile: (
+	columns: 1,
+	gutter: 1rem,
+	media: "(max-width: 460px)",
+);
+
+$video-two-up--to-tablet: (
+	columns: 2,
+	gutter: 2rem,
+	media: "(min-width: 461px)",
+);
+
+$video-three-up--tablet-up: (
+	columns: 3,
+	gutter: 2rem,
+	media: "(min-width: 769px)",
+);
+
+.video-portals {
+	@include grid-container();
+	margin: 0 auto;
+	max-width: 1200px;
+	.portal-container {
+		h2 {
+			clear: both;
+			display: block;
+			text-align: center;
+			text-transform: uppercase;
+		}
+		.portal {
+			margin-bottom: $smallspace;
+			@include grid-media( $video-two-up--to-tablet ) {
+				@include grid-column(1, $video-two-up--to-tablet);
+			}
+			@include grid-media( $video-three-up--tablet-up) {
+				@include grid-column(1, $video-three-up--tablet-up);
+			}
+			p {
+				margin: $xsmallspace 0 0;
+			}
+		}
+	}
+}
+
+.single-video-container {
+	@include grid-container;
+	margin-bottom: $hundred;
+	margin-top: $hundred;
+	.video {
+		@include grid-column(1);
+	}
+}
+
+.embed-container {
+	position: relative;
+	padding-bottom: 56.25%;
+	height: 0;
+	overflow: hidden;
+	max-width: 100%;
+	height: auto;
+	iframe,
+	object,
+	embed {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+}
