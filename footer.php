@@ -161,7 +161,7 @@
 <!-- Begin Bottom Footer -->
 <section class="bottom-footer">
 	<div class="site-info">
-		&copy; <?php the_time('Y'); ?>. <?php echo get_bloginfo('description'); ?>
+		&copy; <?php echo date('Y'); ?> &mdash; <?php echo get_bloginfo('description'); ?>
 	</div>
 </section>
 
