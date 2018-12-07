@@ -83,6 +83,8 @@ function basis_widgets_init() {
 }
 add_action( 'widgets_init', 'basis_widgets_init' );
 
+
+
 /**
  * Enqueue scripts and styles.
  */
@@ -154,3 +156,28 @@ function wcs_woo_remove_reviews_tab($tabs) {
  unset($tabs['reviews']);
  return $tabs;
 }
+
+/**
+ * Apply a different tax rate based on the user role.
+ *
+ * @param $tax_class
+ * @param $product
+ *
+ * @return string
+ */
+function woo_diff_rate_for_user( $tax_class, $product ) {
+
+    $current_user = wp_get_current_user();
+    $roles = $current_user->roles;
+    $current_user_role = $roles[0];
+
+    $not_taxed_roles = array("wholesale_customer");
+
+    if (is_user_logged_in() && in_array($current_user_role, $not_taxed_roles)) {
+
+        $tax_class = "Zero Rate";
+    }
+    return $tax_class;
+}
+add_filter( "woocommerce_product_get_tax_class", "woo_diff_rate_for_user", 1, 2 );
+add_filter( "woocommerce_product_variation_get_tax_class", "woo_diff_rate_for_user", 1, 2 );
