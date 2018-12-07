@@ -20,7 +20,11 @@
 					C6.111,12.76,4.004,10.652,4.004,8.287z"/>
 				</svg>
 			</div>
-			<input class="site-search-input" type="search" /></span>
+			<form role="search" method="get" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+			<input class="site-search-input" name="s" type="search" value="<?php echo get_search_query() ?>" >
+				<?php /*</span>*/?>
+				<button type="submit" class="search-submit" style="visibility: hidden; position: absolute"></button>
+			</form>	
 		</div>
 		<div class="account-and-cart">
 			<a class="account-link" href="/my-account">
