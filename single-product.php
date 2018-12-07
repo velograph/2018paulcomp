@@ -1,8 +1,9 @@
 <?php
 /**
- * The template for displaying all single posts.
+ * The template for displaying single products
  *
  * @package Paul Component 2018 Update
+ * @version     1.6.4
  */
 
 get_header(); ?>
