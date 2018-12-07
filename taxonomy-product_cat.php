@@ -111,31 +111,46 @@ get_header( 'shop' ); ?>
 
 		<?php } elseif(($parent->term_id!="") && (sizeof($children)==0)) { ?>
 
-			<?php if ( have_posts() ) : ?>
-
 				<div class="middle-tier-categories">
 
-					<?php while ( have_posts() ) : the_post(); ?>
+					<?php
 
-						<div class="portal" id="post-<?php the_ID(); ?>">
-							<a href="<?php the_permalink(); ?>">
-								<?php
-									// Outputting an image using Image ID as the Return Value
-									echo wp_get_attachment_image( get_post_thumbnail_id( $post->ID ), 'full' );
-								?>
+					    $args = array(
+					        'post_type' => 'product',
+					        'product_cat' => $term->slug,
+					        'orderby' => 'menu_order',
+					        'order' => 'ASC'
+					    );
+					    $query = new WP_Query($args);
 
-								<h4>
-									<?php the_title(); ?>
-								</h4>
-								<h6><?php echo $term->name; ?></h6>
-							</a>
-						</div>
+					    if($query->have_posts()) : ?>
 
-					<?php endwhile; ?>
+					    <?php while($query->have_posts()) : ?>
+
+					        <?php $query->the_post(); ?>
+
+					        <div class="portal" id="post-<?php the_ID(); ?>">
+					            <a href="<?php the_permalink(); ?>">
+					                <?php
+					                    // Outputting an image using Image ID as the Return Value
+					                    echo wp_get_attachment_image( get_post_thumbnail_id( $post->ID ), 'full' );
+					                ?>
+
+					                <h4>
+					                    <?php the_title(); ?>
+					                </h4>
+					                <?php if (is_term('brake-parts')) : ?>
+					                <?php else: ?>
+					                    <h6><?php echo $term->name; ?></h6>
+					                <?php endif; ?>
+					            </a>
+					        </div>
+
+					    <?php endwhile; ?>
+
+					<?php endif; ?>
 
 				</div>
-
-			<?php endif; ?>
 
 		<?php } ?>
 
