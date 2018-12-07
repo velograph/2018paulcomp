@@ -7,7 +7,8 @@
 
 get_header(); ?>
 
-	<section id="primary" class="content-area">
+	<section id="primary" class="content-area search-area">
+		<div class="body-copy">
 
 		<?php if ( have_posts() ) : ?>
 
@@ -29,14 +30,14 @@ get_header(); ?>
 
 			<?php endwhile; ?>
 
-			<?php basis_paging_nav(); ?>
+			<?php //basis_paging_nav(); ?>
 
 		<?php else : ?>
 
 			<?php get_template_part( 'content', 'none' ); ?>
 
 		<?php endif; ?>
-
+</div>
 	</section><!-- #primary -->
 
 <?php get_footer(); ?>
