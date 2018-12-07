@@ -63,29 +63,21 @@ get_header( 'shop' ); ?>
 		<?php } if(($parent->term_id!="" && sizeof($children)>0)) { ?>
 
 			<div class="middle-tier-categories">
-				<?php
-					$current_term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) );
-					$terms = get_terms( 'product_cat', array(
-						'hide_empty' => 1,
-						'orderby' => 'name',
-						'child_of' => $current_term->term_id,
-					) );
-					?>
 
 				<?php
-				// now run a query for each product family
-				foreach( $terms as $term ) {
 
-					// Define the query
 					$args = array(
 						'post_type' => 'product',
 						'product_cat' => $term->slug,
+						'posts_per_page' => -1,
 						'orderby' => 'menu_order',
 						'order' => 'ASC'
 					);
-					$query = new WP_Query( $args ); ?>
+					$query = new WP_Query($args);
 
-					<?php while ( $query->have_posts() ) : ?>
+					if($query->have_posts()) : ?>
+
+					<?php while($query->have_posts()) : ?>
 
 						<?php $query->the_post(); ?>
 
@@ -95,17 +87,20 @@ get_header( 'shop' ); ?>
 									// Outputting an image using Image ID as the Return Value
 									echo wp_get_attachment_image( get_post_thumbnail_id( $post->ID ), 'full' );
 								?>
+
 								<h4>
 									<?php the_title(); ?>
 								</h4>
-								<h6><?php echo $term->name; ?></h6>
-
+								<?php if (is_term('brake-parts')) : ?>
+								<?php else: ?>
+									<h6><?php echo $term->name; ?></h6>
+								<?php endif; ?>
 							</a>
 						</div>
 
 					<?php endwhile; ?>
 
-				<?php wp_reset_postdata(); } ?>
+				<?php endif; ?>
 
 			</div>
 
