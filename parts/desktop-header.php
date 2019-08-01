@@ -2,7 +2,7 @@
 
 	<div class="site-logo">
 		<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-			<img src="<?php echo get_template_directory_uri(); ?>/images/paul_round.svg" />
+			<img src="/wp-content/uploads/2019/07/30_paul_white.svg" />
 		</a>
 	</div>
 

@@ -15,7 +15,10 @@ get_header(); ?>
 		jQuery('.product-image').slick({
 		  slidesToShow: 1,
 		  slidesToScroll: 1,
-		  arrows: false,
+		  arrows: true,
+		  prevArrow: "<button class='prevArrow'>&lt;</button>",
+		  nextArrow: "<button class='nextArrow'>&gt;</button>",
+	   	  // nextArrow: jQuery('.next'),
 		  asNavFor: '.product-thumbs'
 		});
 		jQuery('.product-thumbs').slick({

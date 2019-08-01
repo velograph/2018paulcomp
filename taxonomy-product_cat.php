@@ -15,6 +15,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header( 'shop' ); ?>
 
+<script type="text/javascript">
+jQuery(document).ready(function(){
+	jQuery('.portal h4').matchHeight();
+});
+
+</script>
+
 <?php get_template_part('parts/breadcrumbs'); ?>
 
 <section class="portal-containers">
@@ -28,6 +35,7 @@ get_header( 'shop' ); ?>
 		<div class="portal-container <?php echo $term->slug; ?>-portals">
 
    	 		<?php // Components ?>
+
    	 		<?php
    	 			$prod_categories = get_terms( 'product_cat', array(
    	 				'orderby' => 'name',
@@ -42,6 +50,7 @@ get_header( 'shop' ); ?>
    	 			?>
 
    	 			<div class="portal">
+
 
    	 				<a href="<?php echo $term_link; ?>">
 						<?php
@@ -70,7 +79,7 @@ get_header( 'shop' ); ?>
 						'post_type' => 'product',
 						'product_cat' => $term->slug,
 						'posts_per_page' => -1,
-						'orderby' => 'menu_order',
+						'orderby' => 'date',
 						'order' => 'ASC'
 					);
 					$query = new WP_Query($args);

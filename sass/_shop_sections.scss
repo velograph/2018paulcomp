@@ -11,9 +11,15 @@ $components--to-tablet: (
 );
 
 $components--tablet-up: (
-  columns: 5,
-  gutter: 2rem,
+  columns: 3,
+  gutter: 1rem,
   media: "(min-width: 769px)",
+);
+
+$components--desktop-up: (
+  columns: 5,
+  gutter: 1rem,
+  media: "(min-width: 1164px)",
 );
 
 $service-parts--to-tablet: (
@@ -81,7 +87,12 @@ $accessories-apparel--tablet-up: (
 			@include grid-column(1, $mobile-portals);
 
 			@include grid-media($components--tablet-up) {
+				// display: grid;
 				@include grid-column(1, $components--tablet-up);
+				text-transform: uppercase;
+			}
+			@include grid-media($components--desktop-up) {
+				@include grid-column(1, $components--desktop-up);
 				text-transform: uppercase;
 			}
 		}

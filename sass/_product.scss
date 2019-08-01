@@ -44,7 +44,27 @@ $related-products: (
 		}
 	}
 	.column-one {
-
+		.product-gallery-container {
+			.slick-slider {
+				.slick-arrow {
+					border: none;
+					background: transparent;
+					cursor: pointer;
+					position: absolute;
+					top: 50%;
+					transform: translateY(-50%);
+					&:hover {
+						color: $orange;
+					}
+				}
+				.prevArrow {
+					z-index: 1;
+				}
+				.nextArrow {
+					right: 0;
+				}
+			}
+		}
 	}
 	.column-two {
 
@@ -141,7 +161,7 @@ $related-products: (
 			}
 		}
 		.slick-dots {
-			bottom: 0;
+			bottom: -25px;
 			position: absolute;
 			margin: 0;
 			padding: 0;

@@ -8,21 +8,20 @@
  */
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class('post'); ?>>
-	<header class="entry-header">
-		<?php the_title( sprintf( '<h1 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h1>' ); ?>
+	<div class="portal" id="post-<?php the_ID(); ?>" style="width: 33%; float: left;">
+							<a href="<?php the_permalink(); ?>">
+								<?php
+									// Outputting an image using Image ID as the Return Value
+									echo wp_get_attachment_image( get_post_thumbnail_id( $post->ID ), 'full' );
+								?>
 
-		<?php if ( 'post' == get_post_type() ) : ?>
-		<div class="entry-meta">
-			<?php basis_posted_on(); ?>
-		</div><!-- .entry-meta -->
-		<?php endif; ?>
-	</header><!-- .entry-header -->
-
-	<div class="entry-summary">
-		<?php the_excerpt(); ?>
-	</div><!-- .entry-summary -->
-
-	<footer class="entry-footer">
-		<?php basis_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
+								<h4>
+									<?php the_title(); ?>
+								</h4>
+								<?php if (is_term('brake-parts')) : ?>
+								<?php else: ?>
+									<h6><?php echo $term->name; ?></h6>
+								<?php endif; ?>
+							</a>
+						</div>
 </article><!-- #post-## -->
