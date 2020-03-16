@@ -17,9 +17,10 @@
 	<div class="mailing-list-image">
 
 		<?php
-			// Outputting an image using Image ID as the Return Value
-			$neat_responsive_image_id = get_field('mailing_list_background_image', 75);
-			echo wp_get_attachment_image( $neat_responsive_image_id, 'full' );
+
+			$image_attributes = wp_get_attachment_image_src( 15341 );
+			echo wp_get_attachment_image( 15341, 'full' );
+
 		?>
 
 	</div>
@@ -27,7 +28,7 @@
 	<div class="signup-form">
 		<h1>Stay in Touch</h1>
 		<?php echo do_shortcode('[mc4wp_form id="a72bcf9d7"]'); ?>
-		<blockquote><?php the_field('mailing_list_tagline', 75); ?></blockquote>
+		<blockquote>Our monthly email is an ongoing bike conversation for creative people who spend a lot of time in their garage.</blockquote>
 	</div>
 
 </section>
@@ -109,7 +110,7 @@
 		<div class="social-media">
 			<h5>Follow Along</h5>
 			<div class="instagram icon">
-				<a href="<?php echo the_field('instagram', 75); ?>" target="_blank">
+				<a href="https://instagram.com/paulcomponent/" target="_blank">
 					<svg version="1.1" id="Instagram" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 						 viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
 					<path d="M17,1H3C1.9,1,1,1.9,1,3v14c0,1.101,0.9,2,2,2h14c1.1,0,2-0.899,2-2V3C19,1.9,18.1,1,17,1z M9.984,15.523
@@ -122,7 +123,7 @@
 				</a>
 			</div>
 			<div class="facebook icon">
-				<a href="<?php echo the_field('facebook', 75); ?>" target="_blank">
+				<a href="https://www.facebook.com/Paul.Component.Engineering" target="_blank">
 					<svg version="1.1" id="Facebook" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 						 viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
 					<path d="M17,1H3C1.9,1,1,1.9,1,3v14c0,1.101,0.9,2,2,2h7v-7H8V9.525h2V7.475c0-2.164,1.212-3.684,3.766-3.684l1.803,0.002v2.605
@@ -131,7 +132,7 @@
 				</a>
 			</div>
 			<div class="youtube icon">
-				<a href="<?php echo the_field('youtube', 75); ?>" target="_blank">
+				<a href="https://www.youtube.com/channel/UCzxgEuE1ajLZbYmJtlXcZhA" target="_blank">
 					<svg version="1.1" id="Youtube" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 						 viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
 					<path d="M10,2.3C0.172,2.3,0,3.174,0,10s0.172,7.7,10,7.7s10-0.874,10-7.7S19.828,2.3,10,2.3z M13.205,10.334l-4.49,2.096
@@ -140,7 +141,7 @@
 				</a>
 			</div>
 			<div class="vimeo icon">
-				<a href="<?php echo the_field('vimeo', 75); ?>" target="_blank">
+				<a href="https://vimeo.com/user40728628" target="_blank">
 					<svg version="1.1" id="Vimeo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 						 viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
 					<path d="M18.91,5.84c-1.006,5.773-6.625,10.66-8.315,11.777c-1.69,1.115-3.233-0.447-3.792-1.631
