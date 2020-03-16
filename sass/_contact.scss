@@ -29,3 +29,45 @@ $contact-two-column: (
 		}
 	}
 }
+
+.page-dealer-application {
+	.content-area {
+		margin: 0 auto;
+		max-width: 50%;
+		.entry-content {
+			p {
+				margin-bottom: $midspace;
+			}
+		}
+		.gform_wrapper {
+			.gform_heading {
+				display: none;
+			}
+			.gform_body {
+				.gform_fields {
+					li.gfield {
+						padding: 0;
+						&.gf_left_third {
+							padding-right: $xxsmallspace;
+						}
+						&.gf_middle_third {
+							padding: 0 $xxsmallspace;
+						}
+						&.gf_right_third {
+							padding-left: $xxsmallspace;
+						}
+						&.gf_left_half {
+							padding-right: $xxsmallspace;
+						}
+						&.gf_right_half {
+							padding-left: $xxsmallspace;
+						}
+					}
+				}
+				.gfield_label {
+					font-weight: 400;
+				}
+			}
+		}
+	}
+}

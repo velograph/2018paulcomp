@@ -8,15 +8,16 @@
 get_header(); ?>
 
 	<section id="primary" class="content-area search-area">
-			<section class="portal-containers">
-		
-		
+			<section class="components-portals portal-containers">
+
+
 		<?php if ( have_posts() ) : ?>
 
 			<header class="page-header">
 				<h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'Paul Component 2018 Update' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
 			</header><!-- .page-header -->
 
+			<div class="portal-container">
 				<?php /* Start the Loop */ ?>
 				<?php while ( have_posts() ) : the_post(); ?>
 
@@ -37,6 +38,8 @@ get_header(); ?>
 
 				<?php get_template_part( 'content', 'none' ); ?>
 
+			</div>
+			
 			<?php endif; ?>
 
 			</section>
