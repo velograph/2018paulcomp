@@ -180,3 +180,25 @@ function woo_diff_rate_for_user( $tax_class, $product ) {
 }
 add_filter( "woocommerce_product_get_tax_class", "woo_diff_rate_for_user", 1, 2 );
 add_filter( "woocommerce_product_variation_get_tax_class", "woo_diff_rate_for_user", 1, 2 );
+
+add_filter('woocommerce_show_variation_price', function() {
+	return TRUE;}
+);
+
+/**
+ * Disable out of stock variations
+ * https://github.com/woocommerce/woocommerce/blob/826af31e1e3b6e8e5fc3c1004cc517c5c5ec25b1/includes/class-wc-product-variation.php
+ * @return Boolean
+ */
+function wcbv_variation_is_active( $active, $variation ) {
+	if( ! $variation->is_in_stock() ) {
+		return false;
+	}
+	return $active;
+}
+add_filter( 'woocommerce_variation_is_active', 'wcbv_variation_is_active', 10, 2 );
+
+add_filter( 'woocommerce_ajax_variation_threshold', 'wc_ajax_threshold_increase' );
+function wc_ajax_threshold_increase() {
+    return 150;
+}

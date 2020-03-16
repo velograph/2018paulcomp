@@ -104,7 +104,7 @@ $accessories-apparel--tablet-up: (
 			@include grid-media($accessories-apparel--tablet-up) {
 				@include grid-column(1, $accessories-apparel--tablet-up);
 				// &:first-of-type {
-					@include grid-shift(2, $accessories-apparel--tablet-up);
+					// @include grid-shift(2, $accessories-apparel--tablet-up);
 				// }
 			}
 		}

@@ -156,6 +156,43 @@ jQuery(document).ready(function(){
 
 				</div>
 
+	<?php } elseif(($parent->term_id="173")) { ?>
+
+		<div class="components-portals portal-container">
+
+			<h2><a href="/product-category/limited-edition/">Limited Edition</a></h2>
+			<?php
+			$args = array( 
+				'post_type' => 'product',
+				'post_status' => 'publish',
+				'product_cat' => 'limited-edition',
+				'orderby' => 'ASC' );
+			$loop = new WP_Query( $args );
+
+			while ( $loop->have_posts() ) : $loop->the_post(); global $product; ?>
+
+				<div class="portal" id="post-<?php the_ID(); ?>">
+					<a href="<?php the_permalink(); ?>">
+						<?php
+							// Outputting an image using Image ID as the Return Value
+							echo wp_get_attachment_image( get_post_thumbnail_id( $post->ID ), 'full' );
+						?>
+
+						<h4>
+							<?php the_title(); ?>
+						</h4>
+						<?php if (is_term('brake-parts')) : ?>
+						<?php else: ?>
+							<h6><?php echo $term->name; ?></h6>
+						<?php endif; ?>
+					</a>
+				</div>
+
+			<?php endwhile; ?>
+			<?php wp_reset_query(); ?>
+
+		</div>
+
 		<?php } ?>
 
 </section>

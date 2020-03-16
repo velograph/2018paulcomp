@@ -2,7 +2,7 @@
 
 	<div class="site-branding">
 		<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-			<img src="/wp-content/uploads/2019/07/30_paul_white.svg" />
+			<img src="/wp-content/uploads/2020/03/paul_logo.svg" />
 		</a>
 	</div>
 
