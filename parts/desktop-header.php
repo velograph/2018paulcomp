@@ -24,7 +24,7 @@
 			<input class="site-search-input" name="s" type="search" value="<?php echo get_search_query() ?>" >
 				<?php /*</span>*/?>
 				<button type="submit" class="search-submit" style="visibility: hidden; position: absolute"></button>
-			</form>	
+			</form>
 		</div>
 		<div class="account-and-cart">
 			<a class="account-link" href="/my-account">

@@ -133,6 +133,7 @@ $utility-header: (
 }
 
 .desktop-header {
+    clear: both;
 	display: none;
 	@include grid-media($header-grid--tablet-up) {
         @include grid-container;
