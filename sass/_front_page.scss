@@ -15,10 +15,20 @@ $frontpage-desktop: (
 	media: "(min-width: 768px)",
 );
 
+.covid-19-header {
+    background: $orange;
+    color: $white;
+    font-weight: 400;
+    text-align: center;
+    h3 {
+        margin: 0;
+        padding: 1%;
+    }
+}
 .covid-19-container {
     background: $black;
     display: flex;
-	.covid-19-message {
+    .covid-19-message {
         @include grid-media($frontpage-container--mobile) {
             @include grid-column(10);
 			@include grid-shift(1);

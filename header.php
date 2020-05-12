@@ -64,9 +64,11 @@
 
 <div id="page" class="hfeed site page-<?php echo $page_slug_name; ?>">
 
+    <div class="covid-19-header">
+        <h3>Covid-19 Update: We still have a very healthy stockpile of components on the shelves and a safe method for shipping them.</h3>
+    </div>
     <div class="covid-19-container">
         <div class="covid-19-message">
-            <p>Covid-19 Update: We still have a very healthy stockpile of components on the shelves and a safe method for shipping them.</p>
             <p>We’re still receiving your orders, and really appreciate your support, but please be patient as it may take a day or two longer for us to get your order confirmation sent, and orders shipped under the current circumstances. Rest assured we will get your parts to you as fast as we are able to while observing safety protocols!</p>
             <p>Thank you,</p>
             <p>The PAUL Crew</p>
