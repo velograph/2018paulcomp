@@ -26,7 +26,7 @@ $frontpage-desktop: (
     }
 }
 .covid-19-container {
-    background: $black;
+    background: $orange;
     display: flex;
     .covid-19-message {
         @include grid-media($frontpage-container--mobile) {
