@@ -213,20 +213,11 @@ $utility-header: (
     			}
     			.account-link {
 		            @include grid-column(6, $utility-header);
-    				font-size: 14px;
+    				// font-size: 14px;
+                    text-align: center;
     			}
     			.cart-link {
 		            @include grid-column(5, $utility-header);
-    				// @include grid-shift(1);
-    				direction: ltr;
-    				svg {
-    					width: 16px;
-    				}
-    				&:hover {
-    					a {
-    						fill: $orange-hover;
-    					}
-    				}
     			}
     		}
         }
