@@ -10,6 +10,32 @@ $related-products: (
 	media: "(min-width: 769px)",
 );
 
+.page-my-account {
+	@include grid-container();
+	.content-area {
+		margin: 0 auto;
+		max-width: 50%;
+		h2 {
+			font-weight: 400;
+		}
+		.woocommerce-form-login {
+			.input-text {
+				display: block;
+			    width: 33.333%;
+			    padding: 1%;
+			    margin-top: 1%;
+			}
+			.woocommerce-form-login__submit {
+				float: left;
+			}
+			.lost_password {
+				clear: both;
+				margin-top: 5%;
+			}
+		}
+	}
+}
+
 .page-cart {
 	.woocommerce-message {
 		margin-bottom: $smallspace;
